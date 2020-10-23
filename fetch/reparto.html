@@ -1,0 +1,105 @@
+            <div class="reparto">
+                <div class="informaciones">
+                    <h1>Informacion sobre el reparto</h1>
+                    <p>El reparto es gratis para todos los pedidos asi a las provincias del pais. Aseguramos el entrego a la direccion dicha entre 5 y 7 dias.</p>
+                    <br>
+                    <h2>Reparto asi a Brasil</h2>
+                        <ul>
+                            <li>Pedido echo en dias abierto, antes de las 10pm -> Reparto en 10 dias.</li>
+                            <li>Del lunes a viernes recibiran el codigo tracking en las 24 horas </li>
+                            <li>Los pedidos echos los fin de semanas recibiran el codigo tracking el lunes</li>
+                        </ul>
+                        <h2>Reparto asi a Chile</h2>
+                        <ul>
+                            <li>Pedido echo en dias abierto, antes de las 10pm -> Reparto en 10 dias.</li>
+                            <li>Del lunes a viernes recibiran el codigo tracking en las 24 horas </li>
+                            <li>Los pedidos echos los fin de semanas recibiran el codigo tracking el lunes</li>
+                        </ul>
+                        <h2>Reparto asi a Uruguay</h2>
+                        <ul>
+                            <li>Pedido echo en dias abierto, antes de las 10pm -> Reparto en 10 dias.</li>
+                            <li>Reparto asegurado por Telomandos </li>
+                            <li>Del lunes a viernes recibiran el codigo tracking en las 24 horas </li>
+                            <li>Los pedidos echos los fin de semanas recibiran el codigo tracking el lunes</li>
+                        </ul> 
+                        
+                        <p> <strong>Atencion : </strong> el reparto fuera del pais puede ser controlado por las aduanas, los que retraza el entregue de 2 a 3 dias. No tomamos en cuanta los dias feriados de Brasil, Chile, Uruguay.</p>
+                        
+                        <h2>Atencion</h2>
+                        <ul>
+                            <li>Nos podemos entregar los pedidos con un valor ajustado (inferior) al bono</li>
+                            <li>Fuera de Mercosur se aplica una tasa de 15% sobre el precio total</li>
+                            <li>El costo de la factura aparece al final del pedido</li>
+                        </ul>
+                </div>
+
+            <table class="table justify-content-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Pais</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Tiempo</th>
+                        <th scope="col">Eliminar/Editar</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input type="text" id="inputFiltrar">
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                            <button id="btnFiltrar">Filtrar</button>
+                            <button id="btnRestablecer">Restablecer</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTabla">
+                </tbody>
+            </table>
+            
+            <div class="dinamica">
+                <div class="row" id="divDatos">
+                    <div class="col-md-8" id="divEditar">
+                        <h3>Editar</h3>
+                        <p>Pais: </p>
+                        <input class="form-control" type="text" id="paisInput">
+                        <p>Ciudad: </p>
+                        <input class="form-control" type="text" id="ciudadInput">
+                        <p>Precio: </p>
+                        <input class="form-control" type="text" id="precioInput">
+                        <p>Tiempo: </p>
+                        <input class="form-control" type="text" id="tiempoInput">
+                        <button type="button" class="btn btn-secondary" id="btnConfirmEdit">Confirmar editar</button>
+                    </div>
+                    <div class="col-md-8" id="ingresoDatos">
+                        <h3>Agregar datos</h3>
+                        <p>Agregar el pais</p>
+                        <input class="form-control" type="text" id="paisI">
+                        <p>Agregar el ciudad</p>
+                        <input class="form-control" type="text" id="ciudadI">
+                        <p>Agregar el precio</p>
+                        <input class="form-control" type="text" id="precioI">
+                        <p>Agregar el tiempo</p>
+                        <input class="form-control" type="text" id="tiempoI">
+                    </div>
+                    
+                    <div class="col-md-3" class="btn-group" id="botones" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary" id="btnAgregar">Agregar una fila</button>
+                        <button type="button" class="btn btn-secondary" id="btnCrearItems">Crear 3 items</button>
+                        <button type="button" class="btn btn-secondary" id="btnBorrarElem">Borrar elementos</button>
+                      </div>
+                </div>
+            </div> 
+            <div>
+                <p id="test1"></p>
+                <p id="test2"></p>
+                <p id="test3"></p>
+                <p id="test4"></p>
+            </div>
+        </div>
+       

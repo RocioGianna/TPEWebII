@@ -1,0 +1,621 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+header h1{
+    justify-content: center;
+    z-index: 1;
+    text-align: center;
+    position: fixed;
+    background: linear-gradient(rgb(172, 172, 172), #f8f9fa);
+    width: 100%;
+}
+
+#titulo{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar{
+    margin: -10px 0 0 0;
+    font-size: smaller;
+    height: 70px;
+}
+
+#buscar{
+    display: none;
+}
+
+figure {
+    margin: 2px 0 0rem;
+}
+
+figure .banner{
+    padding: 0px;
+    width: 100%;
+}
+.banner img{
+    height: 200px;
+    width: 100%;
+}
+
+aside{
+    margin-bottom: 20px;
+    justify-content: center;
+    display: contents;
+    text-align: center;
+}
+
+aside ul{
+    justify-content: center;
+    display: contents;
+    text-align: center;
+}
+
+li a{
+    color: #6c757d;
+}
+
+li a:hover{
+    text-decoration: none;
+    color:#343a40;
+}
+
+aside li:hover{
+    background-color:rgb(206, 203, 203);
+}
+
+.promo{
+    background-color: rgb(240, 15, 15);
+    color: white
+}
+
+#productos{
+    text-align: center;
+}
+
+#productos img{
+    border-radius: 5px;
+    height: 185px;
+    width: 280px;
+}
+/*
+#productos img:hover{
+    transform: scale(1.02);
+    opacity: 0.8;
+}
+*/
+.container-fluid .row{
+    justify-content: center;
+}
+
+.container-fluid{
+    background-color: rgb(230, 230, 230);
+}
+
+.container-fluid article{
+    margin: 10px 0;
+    padding: 0px;
+}
+
+.container-fluid article h3{
+    text-align: center;
+}
+
+.container-fluid article p{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.container-fluid article button{
+    height: 30px;
+    padding: 0 20px;
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
+}
+
+footer{
+    margin-top: 0;
+    background: linear-gradient(rgb(230, 230, 230), rgb(158, 158, 158));
+}
+
+footer .row{
+    text-align: center;
+    margin: 0;
+}
+
+footer ul{
+    padding: 0;
+}
+
+footer .row a{
+    text-decoration: none;
+    color: grey;
+}
+
+footer .row a:hover{
+    color: black;
+}
+
+.foot-title{
+    font-weight: bold;
+}
+
+/*FORMULARIO*/
+
+.informaciones{
+    text-align: center;
+}
+
+#lugarImg{
+    height: 50px;
+}
+
+.formulario{
+    margin: 15px 20px;
+}
+
+#btnFinal {
+    float: right;
+}
+
+#cambiarCapcha{
+    float: right;
+}
+
+.capcha{
+    padding: 0;
+}
+
+#form{
+    background-color: rgb(230, 230, 230);
+}
+
+#confirmacion{
+    display: absolute;
+    display: none;
+    background-color: #39F80A;
+    color: beige;
+}
+
+#error{
+    display: absolute;
+    display: none;
+    background-color: #F70202;
+    color: beige;
+    margin-top: 30px;
+}
+
+#error.show, #confirmacion.show {
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+#form .form-row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*REPARTO*/
+
+.ocultar{
+    display: none;
+}
+
+.motsrar{
+    display: table-row;
+    visibility: visible;
+}
+
+.reparto{
+    margin: 20px 0px;
+}
+
+.btnTabla{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: .25rem;
+}
+
+#ingresoDatos{
+    padding: 30px;
+}
+
+#divDatos{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#bodyTabla{
+    width: 100%;
+    margin: 5px 30px;
+}
+
+#botones{
+    margin: 15px;
+}
+
+#btnBorrarElem{
+    width: 100%;
+}
+
+#btnAgregar{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#btnConfirmEdit{
+    width: 100%;
+    margin-top: 10px;
+}
+
+#btnCrearItems{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#btnFiltrar{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: .25rem;
+}
+
+#btnRestablecer{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: .25rem;
+}
+
+#inputFiltrar{
+    width: 150px;
+}
+
+/*PRODUCTO EJEMPLO */
+
+#productoEjemplo{
+    margin: 20px 50px;
+}
+
+.figure-caption{
+    text-align: right;
+}
+
+main .btn-outline-success{
+    height: 40px;
+    padding: 0 10px;
+}
+
+@media only screen and (min-width:425px){
+
+    aside{
+        font-size: smaller;
+    }
+
+    #productos img{
+        border-radius: 5px;
+        height: 185px;
+        width: 280px;
+    }
+
+    .formulario{
+        margin: 15px 30px;
+    }
+}
+
+@media only screen and (min-width:630px){
+
+    .reparto{
+        margin: 0 20px;
+    }
+    
+    .navbar{
+        margin: -10px 0 0 0;
+        font-size: medium;
+        height: 70px;
+    }
+
+    #lugarImg{
+        width: 300px;
+    }
+
+    #cambiarCapcha{
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width:730px){
+
+    .navbar{
+        margin: -10px 0 0 0;
+        font-size: medium;
+        height: 120px;
+    }
+
+    aside{
+        font-size: medium;
+    }
+
+    #buscar{
+        display: contents;
+    }
+
+    #buscar .btn{
+        width: 20%;
+    }
+
+    #btnBuscar{
+        width: 100px;
+    }
+/*
+    #productos img{
+        transform: scale(0.8);
+    }
+
+    #productos img:hover{
+        transform: scale(0.82);
+    }
+    */
+
+    .container-fluid article{
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .formulario{
+        margin: 15px 50px;
+    }
+
+    #lugarImg{
+        width: 300px;
+    }
+
+    #cambiarCapcha{
+        padding: 10px 10px 10px 5px;
+    }
+
+    .reparto{
+        margin: 20px 50px;
+    }
+}
+
+@media only screen and (min-width:1024px){
+
+    .navbar{
+        margin: -10px 0 0 0;
+        font-size: larger;
+        height: 150px;
+    }
+
+    aside{
+        font-size: larger;
+    }
+
+    .navbar{
+        margin: -10px 0 0 0;
+        font-size: large;
+    }
+    
+    .navbar{
+        height: 70px;
+    }
+    
+    figure .banner{
+        padding: 0px;
+        width: 100%;
+    }
+    .banner img{
+        height: 200px;
+        width: 100%;
+    }
+    
+    aside{
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    aside ul{
+        justify-content: center;
+    }
+    
+    li a{
+        color: #6c757d;
+    }
+    
+    li a:hover{
+        text-decoration: none;
+        color:#343a40;
+    }
+    
+    aside li:hover{
+        background-color:rgb(206, 203, 203);
+    }
+    
+    .promo{
+        background-color: rgb(240, 15, 15);
+        color: white
+    }
+    
+    .container-fluid .row{
+        justify-content: center;
+    }
+    
+    .container-fluid{
+        background-color: rgb(230, 230, 230);
+    }
+
+    .container-fluid img{
+        height: 185px;
+        width: 280px;
+    }
+    
+    .container-fluid article{
+        margin: 10px 0;
+        padding: 20px;
+    }
+    .container-fluid article h3{
+        text-align: center;
+    }
+    
+    .container-fluid article p{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .container-fluid article button{
+        float: right;
+        height: 30px;
+        padding: 0 20px;
+    }
+    
+    li{
+        list-style: none;
+        text-decoration: none;
+    }
+    
+    
+    footer .row{
+        text-align: center;
+        margin: 0;
+    }
+    
+    footer ul{
+        padding: 0;
+    }
+    
+    footer .row a{
+        text-decoration: none;
+        color: grey;
+    }
+    
+    footer .row a:hover{
+        color: black;
+    }
+    
+    .foot-title{
+        font-weight: bold;
+    }
+    
+    /*FORMULARIO*/
+    
+    #form{
+        background-color: rgb(230, 230, 230);
+    }
+    
+    .informaciones{
+        text-align: center;
+    }
+    
+    #lugarImg{
+        height: 50px;
+    }
+    
+    .formulario{
+        margin: 15px 300px;
+    }
+    
+    #btnFinal {
+        float: right;
+    }
+    
+    #cambiarCapcha{
+        float: right;
+    }
+    
+    .capcha{
+        padding: 0;
+    }
+    
+    #confirmacion{
+        display: absolute;
+        display: none;
+        background-color: #39F80A;
+        color: beige;
+    }
+    
+    #error{
+        display: absolute;
+        display: none;
+        background-color: #F70202;
+        color: beige;
+        margin-top: 30px;
+    }
+    
+    #error.show, #confirmacion.show {
+        display: block;
+    }
+    
+    .hidden{
+        display: none;
+    }
+    
+    
+    /*REPARTO*/
+    
+    .reparto{
+        margin: 20px 150px;
+    }
+    
+    #botones{
+        margin: 15px;
+    }
+    
+    #btnAgregar{
+        margin-top: 10px;
+    }
+    
+    #btnCrearItems{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    /*PRODUCTO EJEMPLO */
+    
+    #productoEjemplo{
+        margin: 20px 0px;
+    }
+    
+    .figure-caption{
+        text-align: right;
+    }
+    
+    main .btn-outline-success{
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    @media only screen and (min-width:1300px){
+
+        .reparto{
+            margin: 0 150px;
+        }
+        #productos img{
+            transform: scale(1);
+        }
+    /*
+        #productos img:hover{
+            transform: scale(1.1);
+        }
+    */
+    }
+}
+
+
