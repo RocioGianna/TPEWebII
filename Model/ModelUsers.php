@@ -12,7 +12,7 @@
             return $sentencia->fetch(PDO::FETCH_OBJ);
         }
         function InsertUser($user, $hash){
-            $sentencia = $this->db->prepare("INSERT INTO users (email, password ) VALUES (?,?)");
+            $sentencia = $this->db->prepare("INSERT INTO usuarios (email, password ) VALUES (?,?)");
             $sentencia-> execute(array($user, $hash));
         }
     }
