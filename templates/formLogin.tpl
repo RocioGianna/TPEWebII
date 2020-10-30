@@ -16,6 +16,7 @@
                     <input type="password" class="form-control" placeholder="clave" name="pass_input" >
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+                <a href="newuser">Create una cuenta</a>
             </form>
         </div>
     </div>
