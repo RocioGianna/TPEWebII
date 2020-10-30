@@ -14,16 +14,23 @@
              $this->model = new ModelItems();
              $this->modelM = new ModelMarcas();
         }
-
+        private function checkLoggedIn(){
+            session_start();
+            if(!isset($_SESSION["email"])){
+                header("Location: ".LOGIN);
+            }
+        }
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-            session_start();
+            $this->checkLoggedIn();
+            $this->vista->ShowItemsLogged($items, $marcas);
+           /* session_start();
             if(!isset($_SESSION["email"])){
                 $this->vista->ShowItems($items);
             }else{
                 $this->vista->ShowItemsLogged($items, $marcas);
-            }
+            }*/
         }
         function Insert(){
             $this->model->InsertItems($_POST['modelo_input'],$_POST['talle_input'],$_POST['precio_input'], $_POST['stock_input'], $_POST['marca_input']);

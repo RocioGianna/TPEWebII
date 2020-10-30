@@ -26,6 +26,9 @@
             $password = $_POST["pass_input"];
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $this->model->InsertUser($user, $hash);
+            session_start();
+            $_SESSION["email"] = $user;
+            $_SESSION["pass"] = $hash;
             $this->vista->Home();
         }
         function Login($params = null){
