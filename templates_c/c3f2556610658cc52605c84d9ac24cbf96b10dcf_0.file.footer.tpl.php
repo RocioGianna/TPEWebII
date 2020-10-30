@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-19 15:19:44
-  from 'C:\xampp\htdocs\flyshoes.com\templates\footer.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-24 01:04:17
+  from 'C:\xampp\htdocs\TPEWeb2\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8d927007c718_51559500',
+  'unifunc' => 'content_5f936171b9e233_75883357',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd3ffe8ae3b06efbfc9934af895adfa0c89beb0ac' => 
+    'c3f2556610658cc52605c84d9ac24cbf96b10dcf' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\flyshoes.com\\templates\\footer.tpl',
+      0 => 'C:\\xampp\\htdocs\\TPEWeb2\\templates\\footer.tpl',
       1 => 1601344173,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f8d927007c718_51559500 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f936171b9e233_75883357 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer>
         <div class="container-fluid">
             <div class="row justify-content-center">

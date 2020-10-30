@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-19 15:25:55
-  from 'C:\xampp\htdocs\flyshoes.com\templates\loggedHeader.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-24 01:04:17
+  from 'C:\xampp\htdocs\TPEWeb2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f8d93e33375c4_32258965',
+  'unifunc' => 'content_5f936171b2e018_49056710',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '70c83808a1d867c4e8d26c237ba3dbba6c4b7f52' => 
+    '7420b1e7c9e2ac9c03b809a763987226131aae6c' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\flyshoes.com\\templates\\loggedHeader.tpl',
-      1 => 1602008095,
+      0 => 'C:\\xampp\\htdocs\\TPEWeb2\\templates\\header.tpl',
+      1 => 1601991912,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f8d93e33375c4_32258965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f936171b2e018_49056710 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +43,7 @@ function content_5f8d93e33375c4_32258965 (Smarty_Internal_Template $_smarty_tpl)
     <header>
         <h1><a href="home" id="titulo">Fly Shoes</a></h1>
     </header>
-        <nav class="navbar navbar-expand navbar-light bg-light" style="height:60px";>
+        <nav class="navbar navbar-expand navbar-light bg-light" style="height:40px";>
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
@@ -67,9 +67,6 @@ function content_5f8d93e33375c4_32258965 (Smarty_Internal_Template $_smarty_tpl)
                     <li class="nav-item">
                         <a href="logout" class="nav-link">LogOut</a>
                     </li>
-                    <div class="alert alert-success" role="alert">
-                        Conectado
-                    </div>
                 </ul>
                 <form id="buscar" class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="buscar">
@@ -87,5 +84,5 @@ function content_5f8d93e33375c4_32258965 (Smarty_Internal_Template $_smarty_tpl)
                 <li class="list-group-item" id="promocion"><a href="#">Ofertas</a></li>
                 <li class="list-group-item" id="reparto"><a>Reparto</a></li>
             </ul>
-        </aside>  <?php }
+        </aside>            <?php }
 }

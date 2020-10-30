@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-21 21:19:15
-  from 'C:\xampp\htdocs\flyshoes.com\templates\main.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-24 01:04:17
+  from 'C:\xampp\htdocs\TPEWeb2\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f9089b3cb46f2_12417292',
+  'unifunc' => 'content_5f936171a1bed0_87915261',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '56e3bed4769d3886339c87e5ff0e2e10b97e35dc' => 
+    '76a61372c36c6d6ea7a96ae72ec484bae69623fd' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\flyshoes.com\\templates\\main.tpl',
+      0 => 'C:\\xampp\\htdocs\\TPEWeb2\\templates\\main.tpl',
       1 => 1602092365,
       2 => 'file',
     ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f9089b3cb46f2_12417292 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f936171a1bed0_87915261 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <main class="container" id="productos">
