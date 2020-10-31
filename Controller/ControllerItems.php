@@ -2,35 +2,34 @@
     require_once './View/VistaItems.php';
     require_once './Model/ModelItems.php';
     require_once './Model/ModelMarca.php';
+    require_once './Controller/Helper.php';
     
 
     class ControllerItems{
         private $vista;
         private $model;
         private $modelM;
+        private $helper;
 
         function __construct(){
              $this->vista = new VistaItems();
              $this->model = new ModelItems();
              $this->modelM = new ModelMarcas();
+             $this->helper = new Helper();
         }
-        private function checkLoggedIn(){
-            session_start();
-            if(!isset($_SESSION["email"])){
-                header("Location: ".LOGIN);
-            }
-        }
+
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-            $this->checkLoggedIn();
-            $this->vista->ShowItemsLogged($items, $marcas);
-           /* session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->ShowItems($items);
-            }else{
+            $usuario = $this->helper->logedUser();
+            $n = $this->helper->checkLoggedIn();
+            if($n == true){
                 $this->vista->ShowItemsLogged($items, $marcas);
-            }*/
+            }else{
+              /*  var_dump($usuario);
+                die;*/
+               $this->vista->ShowItems($items);
+            }
         }
         function Insert(){
             $this->model->InsertItems($_POST['modelo_input'],$_POST['talle_input'],$_POST['precio_input'], $_POST['stock_input'], $_POST['marca_input']);

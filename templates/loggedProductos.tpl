@@ -16,9 +16,10 @@
             <tr scope="row">
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
-                <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
-                <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
-                <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
+                
+                    <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
+                    <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
+                    <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
             </tr>
             {/foreach}
             </tbody>
