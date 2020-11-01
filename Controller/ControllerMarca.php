@@ -7,19 +7,22 @@
          private $vista;
          private $model;
          private $modelI;
+         private $helper;
 
         function __construct(){
             $this->vista = new VistaMarcas();
             $this->model = new ModelMarcas();
             $this->modelI = new ModelItems();
+            $this->helper = new Helper();
         }
+
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
-            session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->renderMarcas($marcas);
-            } else {
+            $n = $this->helper->checkLoggedIn();
+            if($n == true){
                 $this->vista->renderMarcasLogged($marcas);
+            } else {
+                $this->vista->renderMarcas($marcas);
             }
         }
         function InsertMarca(){

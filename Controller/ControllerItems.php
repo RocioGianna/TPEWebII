@@ -21,7 +21,7 @@
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-            $usuario = $this->helper->logedUser();
+           /* $usuario = $this->helper->logedUser();*/ //no hace nada
             $n = $this->helper->checkLoggedIn();
             if($n == true){
                 $this->vista->ShowItemsLogged($items, $marcas);
