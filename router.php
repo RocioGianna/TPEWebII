@@ -18,6 +18,8 @@
     $r->addRoute("showEditForm/:ID", "GET", "ControllerItems", "ShowEditForm");
     $r->addRoute("editItem/:ID", "POST", "ControllerItems", "Edit");
     $r->addRoute("eliminar/:ID", "GET", "ControllerItems", "Borrar");
+    $r->addRoute("comentar/:ID", "GET", "ControllerItems", "Comentar");
+    $r->addRoute("notar/:ID", "GET", "ControllerItems", "Notar");
 
     //ABM Categorias (categoria/marcas)
     $r->addRoute("marcas", "GET", "ControllerMarca", "ShowMarcas");

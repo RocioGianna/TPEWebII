@@ -2,8 +2,6 @@
     require_once './View/VistaItems.php';
     require_once './Model/ModelItems.php';
     require_once './Model/ModelMarca.php';
-    require_once './Controller/Helper.php';
-    
 
     class ControllerItems{
         private $vista;
@@ -61,6 +59,16 @@
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
             $this->vista->ShowItemsLogged($items, $marcas);
+        }
+        function Comentar($params = null){
+            $id_item = $params[":ID"];
+            $item = $this->model->GetItem($id_item);
+            $this->vista->ShowFormComent($item);
+        }
+        function Notar($params = null){
+            $id_item = $params[":ID"];
+            $item = $this->model->GetItem($id_item);
+            $this->vista->ShowFormNote($item);
         }
     }
 ?>
