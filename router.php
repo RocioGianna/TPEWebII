@@ -26,7 +26,9 @@
     $r->addRoute("ShowFormEditMarca/:ID", "GET", "ControllerMarca", "ShowFormEditMarca");
     $r->addRoute("editarMarca/:ID", "POST", "ControllerMarca", "editarMarca");
     $r->addRoute("borrar/:ID", "GET", "ControllerMarca", "BorrarMarcas");
-
+    //rutas administrador
+    $r->addRoute("gestUsuarios", "GET", "ControllerUsers", "usersTable");
+    $r->addRoute("deleteUser/:ID", "GET", "ControllerUsers", "deleteUser");
     //Rutas login 
     $r->addRoute("newuser", "GET", "ControllerUsers", "NewUser");
     $r->addRoute("insertnewuser", "POST", "ControllerUsers", "InsertNewUser");

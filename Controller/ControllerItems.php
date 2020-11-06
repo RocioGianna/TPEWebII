@@ -37,9 +37,7 @@
         function Borrar($params = null){
             $id_zapatilla = $params[':ID'];
             $this->model->BorrarItem($id_zapatilla);
-            $items = $this->model->GetItems();
-            $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowItemsLogged($items, $marcas);
+            $this->ShowItems();
         }
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];

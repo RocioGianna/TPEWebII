@@ -34,8 +34,7 @@
         function BorrarMarcas($params = null){
             $id_marcas = $params[':ID'];
             $this->model->BorrarMarca($id_marcas);
-            $marcas = $this->model->GetMarcas();
-            $this->vista->renderMarcasLogged($marcas);
+            $this->ShowMarcas();
         }
         function ShowFormEditMarca($params = null){
             $id_marca = $params[":ID"];
