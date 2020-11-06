@@ -29,6 +29,10 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('usuarios', $users);
             $smarty->display('templates/usersTable.tpl');
         }
+        function formPermisos(){
+            $smarty = new Smarty();
+            $smarty->display("templates/formPermisos.tpl");
+        }
         function ShowLogin($message = ""){
             $smarty = new Smarty();
             $smarty->assign('message', $message);

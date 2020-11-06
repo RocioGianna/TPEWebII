@@ -27,10 +27,11 @@
         function usersTable(){
             $users = $this->model->GetUsers();
             $rol = $this->model->getRol();
+            $a = "";
             if($rol == 0){
-                $rol = "Registrado";
+                $a = "Registrado";
             }else{
-                $rol = "Administrador";
+                $a = "Administrador";
             }
            /* var_dump($rol);
             die;*/
@@ -40,6 +41,20 @@
             $id = $params[':ID'];
             $this->model->deleteUser($id);
             $this->usersTable();
+        }
+        function quitarPermisos($params = null){
+            $id = $params[':ID'];
+            $rol = 0;
+            $this->model->editPermiso($id, $rol);
+            $this->usersTable();
+            
+        }
+        function darPermisos($params = null){
+            $id = $params[':ID'];
+            $rol = 1;
+            $this->model->editPermiso($id, $rol);
+            $this->usersTable();
+            
         }
         function NewUser(){
             $this->vista->ShowFormNewUser();

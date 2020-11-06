@@ -29,5 +29,9 @@
             $sentencia = $this->db->prepare("INSERT INTO usuarios (email, password, rol ) VALUES (?,?,?)");
             $sentencia-> execute(array($user, $hash, $tipo));
         }
+        function editPermiso($rol, $id){
+            $sentencia = $this->db->prepare("UPDATE usuarios SET(rol = ?) WHERE id= ?");
+            $sentencia->execute(array($rol, $id));
+        }
     }
 ?>

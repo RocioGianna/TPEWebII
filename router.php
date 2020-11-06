@@ -29,6 +29,8 @@
     //rutas administrador
     $r->addRoute("gestUsuarios", "GET", "ControllerUsers", "usersTable");
     $r->addRoute("deleteUser/:ID", "GET", "ControllerUsers", "deleteUser");
+    $r->addRoute("quitarPermiso/:ID", "GET", "ControllerUsers", "quitarPermisos");
+    $r->addRoute("darPermiso/:ID", "GET", "ControllerUsers", "darPermisos");
     //Rutas login 
     $r->addRoute("newuser", "GET", "ControllerUsers", "NewUser");
     $r->addRoute("insertnewuser", "POST", "ControllerUsers", "InsertNewUser");
