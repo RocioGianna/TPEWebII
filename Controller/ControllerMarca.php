@@ -2,6 +2,7 @@
     require_once './View/VistaMarca.php';
     require_once './Model/ModelMarca.php';
     require_once './Model/ModelItems.php';
+    require_once './Controller/Helper.php';
 
      class ControllerMarca{
          private $vista;
@@ -18,8 +19,8 @@
 
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
-            $n = $this->helper->checkLoggedIn();
-            if($n == true){
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado){
                 $this->vista->renderMarcasLogged($marcas);
             } else {
                 $this->vista->renderMarcas($marcas);

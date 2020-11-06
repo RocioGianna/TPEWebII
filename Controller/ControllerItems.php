@@ -21,13 +21,10 @@
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-           /* $usuario = $this->helper->logedUser();*/ //no hace nada
-            $n = $this->helper->checkLoggedIn();
-            if($n == true){
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado){
                 $this->vista->ShowItemsLogged($items, $marcas);
             }else{
-              /*  var_dump($usuario);
-                die;*/
                $this->vista->ShowItems($items);
             }
         }

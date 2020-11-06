@@ -1,21 +1,25 @@
 <?php
     require_once './View/VistaUsers.php';
     require_once './Model/ModelUsers.php';
+    require_once './Controller/Helper.php';
 
     class ControllerUsers{
         private $vista;
         private $model;
+        private $helper;
 
         function __construct(){
             $this->vista = new VistaUser();
             $this->model = new ModelUsers();
+            $this->helper = new Helper();
+            
         }
         function Home(){
-            session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->Home();
-            } else {
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado){
                 $this->vista->HomeLogged();
+            } else {
+                $this->vista->Home();
             }
         }
         function NewUser(){
@@ -60,13 +64,5 @@
                 }
             }
         }
-        /*
-        private function checkLoggedIn(){
-            session_start();
-            if(!isset($_SESSION["email"])){
-                header("Location: ".LOGIN);
-            }
-        }
-        */
     }
 ?>
