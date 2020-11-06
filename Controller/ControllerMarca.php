@@ -2,24 +2,28 @@
     require_once './View/VistaMarca.php';
     require_once './Model/ModelMarca.php';
     require_once './Model/ModelItems.php';
+    require_once './Controller/Helper.php';
 
      class ControllerMarca{
          private $vista;
          private $model;
          private $modelI;
+         private $helper;
 
         function __construct(){
             $this->vista = new VistaMarcas();
             $this->model = new ModelMarcas();
             $this->modelI = new ModelItems();
+            $this->helper = new Helper();
         }
+
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
-            session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->renderMarcas($marcas);
-            } else {
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado){
                 $this->vista->renderMarcasLogged($marcas);
+            } else {
+                $this->vista->renderMarcas($marcas);
             }
         }
         function InsertMarca(){
@@ -30,8 +34,7 @@
         function BorrarMarcas($params = null){
             $id_marcas = $params[':ID'];
             $this->model->BorrarMarca($id_marcas);
-            $marcas = $this->model->GetMarcas();
-            $this->vista->renderMarcasLogged($marcas);
+            $this->ShowMarcas();
         }
         function ShowFormEditMarca($params = null){
             $id_marca = $params[":ID"];

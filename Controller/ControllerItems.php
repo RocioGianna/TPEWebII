@@ -7,21 +7,23 @@
         private $vista;
         private $model;
         private $modelM;
+        private $helper;
 
         function __construct(){
              $this->vista = new VistaItems();
              $this->model = new ModelItems();
              $this->modelM = new ModelMarcas();
+             $this->helper = new Helper();
         }
 
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-            session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->ShowItems($items);
-            }else{
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado){
                 $this->vista->ShowItemsLogged($items, $marcas);
+            }else{
+               $this->vista->ShowItems($items);
             }
         }
         function Insert(){
@@ -33,9 +35,7 @@
         function Borrar($params = null){
             $id_zapatilla = $params[':ID'];
             $this->model->BorrarItem($id_zapatilla);
-            $items = $this->model->GetItems();
-            $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowItemsLogged($items, $marcas);
+            $this->ShowItems();
         }
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];

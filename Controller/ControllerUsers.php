@@ -1,22 +1,45 @@
 <?php
     require_once './View/VistaUsers.php';
     require_once './Model/ModelUsers.php';
+    require_once './Controller/Helper.php';
 
     class ControllerUsers{
         private $vista;
         private $model;
+        private $helper;
 
         function __construct(){
             $this->vista = new VistaUser();
             $this->model = new ModelUsers();
+            $this->helper = new Helper();
+            
         }
         function Home(){
-            session_start();
-            if(!isset($_SESSION["email"])){
-                $this->vista->Home();
-            } else {
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if($usuarioLogueado && $_SESSION["rol"] == 0){
                 $this->vista->HomeLogged();
+            } else if($usuarioLogueado && $_SESSION["rol"] == 1){
+                $this->vista->AdminHome();
+            } else{
+                $this->vista->Home();
             }
+        }
+        function usersTable(){
+            $users = $this->model->GetUsers();
+            $rol = $this->model->getRol();
+            if($rol == 0){
+                $rol = "Registrado";
+            }else{
+                $rol = "Administrador";
+            }
+           /* var_dump($rol);
+            die;*/
+            $this->vista->showTable($users, $rol);
+        }
+        function deleteUser($params = null){
+            $id = $params[':ID'];
+            $this->model->deleteUser($id);
+            $this->usersTable();
         }
         function NewUser(){
             $this->vista->ShowFormNewUser();
@@ -24,8 +47,13 @@
         function InsertNewUser(){
             $user = $_POST["user_input"];
             $password = $_POST["pass_input"];
+            $tipo = 0;
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            $this->model->InsertUser($user, $hash);
+            $this->model->InsertUser($user, $hash, $tipo);
+            session_start();
+            $_SESSION["email"] = $user;
+            $_SESSION["pass"] = $hash;
+            $_SESSION["rol"] = $tipo;
             $this->vista->Home();
         }
         function Login($params = null){
@@ -48,6 +76,7 @@
                         session_start();
                         $_SESSION["email"] = $userFromDb->email;
                         $_SESSION["pass"] = $userFromDb->password;
+                        $_SESSION["rol"] = $userFromDb->rol;
                         header("Location: ".BASE_URL."home");
                     }else{
                         $this->vista->ShowLogin("Contraseña incorrecta");
@@ -57,13 +86,5 @@
                 }
             }
         }
-        /*
-        private function checkLoggedIn(){
-            session_start();
-            if(!isset($_SESSION["email"])){
-                header("Location: ".LOGIN);
-            }
-        }
-        */
     }
 ?>

@@ -18,6 +18,17 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('titulo', $this->titulo);
             $smarty->display('templates/loggedMain.tpl'); 
         }
+        function AdminHome(){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->titulo);
+            $smarty->display('templates/adminHome.tpl');
+        }
+        function showTable($users, $rol){
+            $smarty = new Smarty();
+            /*$smarty->assign(nombre de administrador)*/
+            $smarty->assign('usuarios', $users);
+            $smarty->display('templates/usersTable.tpl');
+        }
         function ShowLogin($message = ""){
             $smarty = new Smarty();
             $smarty->assign('message', $message);

@@ -18,11 +18,18 @@
             <tr scope="row">
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
+<<<<<<< HEAD
                 <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
                 <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
                 <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
                 <td><button type="submit" class="btn btn-light"><a href="./comentar/{$i->id_zapatilla}">Comentar</a></button></td>
                 <td><button type="submit" class="btn btn-light"><a href="./notar/{$i->id_zapatilla}">Notar</a></button></td>
+=======
+                
+                    <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
+                    <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
+                    <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
+>>>>>>> cbec00e429a77a16fe768d1edf50e91a04d5437c
             </tr>
             {/foreach}
             </tbody>
