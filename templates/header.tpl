@@ -49,6 +49,5 @@
                 <li class="list-group-item"><a href="./productos">Productos</a></li>
                 <li class="list-group-item"><a href="./marcas">Marcas</a></li>
                 <li class="list-group-item" id="promocion"><a href="#">Ofertas</a></li>
-                <li class="list-group-item" id="reparto"><a>Reparto</a></li>
             </ul>
         </aside>            

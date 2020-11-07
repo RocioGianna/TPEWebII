@@ -38,6 +38,9 @@
                     <li class="nav-item">
                         <a href="logout" class="nav-link">log out</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="gestUsuarios" class="nav-link">Gestion de Usuarios</a>
+                    </li>
                 </ul>
                  <div>
                      <div class="alert alert-success" role="alert">
@@ -54,7 +57,5 @@
                 <li class="list-group-item"><a href="./productos">Productos</a></li>
                 <li class="list-group-item"><a href="./marcas">Marcas</a></li>
                 <li class="list-group-item" id="promocion"><a href="#">Ofertas</a></li>
-                <li class="list-group-item" id="reparto"><a>Reparto</a></li>
-                <li class="list-group-item"><a href="./gestUsuarios">Gestion de Usuarios</a></li>
             </ul>
         </aside>            

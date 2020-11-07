@@ -23,7 +23,7 @@
             if($usuarioLogueado){
                 $this->vista->ShowItemsLogged($items, $marcas);
             }else{
-               $this->vista->ShowItems($items);
+                $this->vista->ShowItems($items);
             }
         }
         function Insert(){

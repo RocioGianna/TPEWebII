@@ -7,11 +7,6 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function Home(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/main.tpl'); 
-        }
         function DetalleProduct($item){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
