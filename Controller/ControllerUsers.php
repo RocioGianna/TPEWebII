@@ -62,6 +62,7 @@
             if(!empty($_POST['user_input']) && !empty($_POST['pass_input'])){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $this->model->InsertUser($user, $hash, $tipo);
+                //logueo al usuario que recien creo su cuenta
                 session_start();
                 $_SESSION["email"] = $user;
                 $_SESSION["pass"] = $hash;

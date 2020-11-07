@@ -20,7 +20,7 @@
                 <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
                 <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
                 <td><button type="submit" class="btn btn-light"><a href="./comentar/{$i->id_zapatilla}">Comentar</a></button></td>
-                <td><button type="submit" class="btn btn-light"><a href="./notar/{$i->id_zapatilla}">Notar</a></button></td>
+                <td><button type="submit" class="btn btn-light"><a href="./notar/{$i->id_zapatilla}">Puntuar</a></button></td>
             </tr>
             {/foreach}
             </tbody>
