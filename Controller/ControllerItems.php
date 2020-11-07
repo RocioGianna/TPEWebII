@@ -23,14 +23,24 @@
             if($usuarioLogueado){
                 $this->vista->ShowItemsLogged($items, $marcas);
             }else{
-               $this->vista->ShowItems($items);
+                $this->vista->ShowItems($items);
             }
         }
         function Insert(){
-            $this->model->InsertItems($_POST['modelo_input'],$_POST['talle_input'],$_POST['precio_input'], $_POST['stock_input'], $_POST['marca_input']);
-            $items = $this->model->GetItems();
-            $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowItemsLogged($items, $marcas);
+            $modelo = $_POST['modelo_input'];
+            $talle = $_POST['talle_input'] ;
+            $precio = $_POST['precio_input'];
+            $stock = $_POST['stock_input'];
+            $marca = $_POST['marca_input'];
+            if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
+                $this->model->InsertItems($modelo, $talle, $precio, $stock, $marca);
+                $items = $this->model->GetItems();
+                $marcas = $this->modelM->GetMarcas();
+                $this->vista->ShowItemsLogged($items, $marcas);
+            }else{
+                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $this->vista->showError($error);
+            }
         }
         function Borrar($params = null){
             $id_zapatilla = $params[':ID'];
@@ -55,10 +65,13 @@
             $stock = $_POST["stock_input"];
             $marca = $_POST["marca_input"];
             $id_item = $params[":ID"];
-            $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
-            $items = $this->model->GetItems();
-            $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowItemsLogged($items, $marcas);
+            if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
+                $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
+                $this->ShowItems();
+            }else{
+                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $this->vista->showError($error);
+            }
         }
     }
 ?>

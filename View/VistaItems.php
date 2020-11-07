@@ -7,11 +7,6 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function Home(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/main.tpl'); 
-        }
         function DetalleProduct($item){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
@@ -37,6 +32,11 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('item', $item);
             $smarty->assign('marcas', $marcas);
             $smarty->display('templates/formEdit.tpl'); 
+        }
+        function showError($error){
+            $smarty = new Smarty;
+            $smarty->assign('error', $error);
+            $smarty->display('templates/error.tpl');
         }
         function ShowHomeLocation(){
             header("Location: ".BASE_URL."home");
