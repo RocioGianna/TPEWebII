@@ -9,6 +9,8 @@
                     <th scope="col">Consultar</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
+                    <th scope="col">Comentar</th>
+                    <th scope="col">Notar</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,17 +18,11 @@
             <tr scope="row">
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
-<<<<<<< HEAD
                 <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
                 <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
                 <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
-                <td><button type="submit" class="btn btn-light"><a href="./comentar/{$i->id_zapatilla}">Comentar</a></button></td>
-                <td><button type="submit" class="btn btn-light"><a href="./notar/{$i->id_zapatilla}">Notar</a></button></td>
-=======
-                    <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
-                    <td><button type="submit" class="btn btn-warning"><a href="showEditForm/{$i->id_zapatilla}">Editar</a></button></td>
-                    <td><button type="submit" class="btn btn-danger"><a href="./eliminar/{$i->id_zapatilla}">Eliminar</a></button></td>
->>>>>>> d95aaa9a47754327b855c3107cf1f41fe08f63ad
+                <td><button type="submit" class="btn btn-light"><a href="api/comentar/{$i->id_zapatilla}">Comentar</a></button></td>
+                <td><button type="submit" class="btn btn-light"><a href="api/notar/{$i->id_zapatilla}">Notar</a></button></td>
             </tr>
             {/foreach}
             </tbody>
