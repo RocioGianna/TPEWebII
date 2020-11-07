@@ -26,15 +26,6 @@
         }
         function usersTable(){
             $users = $this->model->GetUsers();
-           /* $rol = $this->model->getRol();
-            $a = "";
-            foreach ($users as $i){
-                if($i->rol == 0){
-                $a = "Registrado";
-            }else{
-                $a = "Administrador";
-            }
-            }*/
             $this->vista->showTable($users);
         }
         function deleteUser($params = null){
@@ -45,14 +36,14 @@
         function quitarPermisos($params = null){
             $id = $params[':ID'];
             $rol = 0;
-            $this->model->editPermiso($id, $rol);
+            $this->model->editPermiso($rol, $id);
             $this->usersTable();
             
         }
         function darPermisos($params = null){
             $id = $params[':ID'];
             $rol = 1;
-            $this->model->editPermiso($id, $rol);
+            $this->model->editPermiso($rol, $id);
             $this->usersTable();
             
         }

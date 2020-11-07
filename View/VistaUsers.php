@@ -27,7 +27,6 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty = new Smarty();
             /*$smarty->assign(nombre de administrador)*/
             $smarty->assign('usuarios', $users);
-            /*$smarty->assign('usuario', $a);*/
             $smarty->display('templates/usersTable.tpl');
         }
         function ShowLogin($message = ""){
