@@ -33,5 +33,10 @@
             $sentencia->execute(array($id_zapatilla));
             return $sentencia->fetchAll( PDO::FETCH_OBJ );
         }
+        function getComents($id_item){
+            $sentencia = $this->db->prepare("SELECT * FROM zapatillas WHERE id_zapatilla=?");
+            $sentencia-> execute(array($id_item));
+            return $sentencia->fetch(PDO::FETCH_OBJ);
+        }
     }
 ?>
