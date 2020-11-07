@@ -11,9 +11,9 @@
             $sentence->execute();
             return $sentence->fetchAll( PDO::FETCH_OBJ );
         }
-        function InsertItems($modelo_input, $talle_input, $precio_input, $stock_input, $marca_input){
+        function InsertItems($modelo, $talle, $precio, $stock, $marca){
             $sentencia = $this->db->prepare("INSERT INTO zapatillas ( modelo, talles, precio, stock, id_marca) VALUES (?,?,?,?,?)");
-            $sentencia->execute(array($modelo_input, $talle_input, $precio_input, $stock_input, $marca_input));
+            $sentencia->execute(array($modelo, $talle, $precio, $stock, $marca));
         }
         function BorrarItem($id_zapatilla){
             $sentencia = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");

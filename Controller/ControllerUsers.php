@@ -2,16 +2,19 @@
     require_once './View/VistaUsers.php';
     require_once './Model/ModelUsers.php';
     require_once './Controller/Helper.php';
+    require_once './View/VistaItems.php';
 
     class ControllerUsers{
         private $vista;
         private $model;
         private $helper;
+        private $view;
 
         function __construct(){
             $this->vista = new VistaUser();
             $this->model = new ModelUsers();
             $this->helper = new Helper();
+            $this->view = new VistaItems();
             
         }
         function Home(){
@@ -28,6 +31,7 @@
             $users = $this->model->GetUsers();
             $this->vista->showTable($users);
         }
+        //borrar usuarios y editar permisos
         function deleteUser($params = null){
             $id = $params[':ID'];
             $this->model->deleteUser($id);
@@ -47,6 +51,7 @@
             $this->usersTable();
             
         }
+        //nuevo usuario
         function NewUser(){
             $this->vista->ShowFormNewUser();
         }
@@ -54,14 +59,20 @@
             $user = $_POST["user_input"];
             $password = $_POST["pass_input"];
             $tipo = 0;
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $this->model->InsertUser($user, $hash, $tipo);
-            session_start();
-            $_SESSION["email"] = $user;
-            $_SESSION["pass"] = $hash;
-            $_SESSION["rol"] = $tipo;
-            $this->vista->Home();
+            if(!empty($_POST['user_input']) && !empty($_POST['pass_input'])){
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $this->model->InsertUser($user, $hash, $tipo);
+                session_start();
+                $_SESSION["email"] = $user;
+                $_SESSION["pass"] = $hash;
+                $_SESSION["rol"] = $tipo;
+                $this->vista->Home();
+            }else{
+                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $this->view->showError($error);
+            }
         }
+        //loged in loged out
         function Login($params = null){
             $this->vista->ShowLogin();
         }
@@ -70,6 +81,7 @@
             session_destroy();
             header("Location: ".LOGIN);
         }
+        //funcion para verificar usuario
         function VerifyUser(){
             $user = $_POST["user_input"];
             $password = $_POST["pass_input"];
