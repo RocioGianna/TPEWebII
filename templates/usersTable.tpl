@@ -14,7 +14,7 @@
             {foreach from= $usuarios item=i }
             <tr scope="row">
                 <td>{$i->email}</td>
-                <td>{$a}</td>
+                <td>{$i->rol}</td>
                 <td><button type="submit" class="btn btn-light"><a href="deleteUser/{$i->id}">Eliminar</a></button></td>
             </tr>
             {/foreach}
