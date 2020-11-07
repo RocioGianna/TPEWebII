@@ -33,16 +33,12 @@
                         <a href="newuser" class="nav-link suscribir">Suscribir</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login" class="nav-link">Login</a>
+                        <a href="login" class="nav-link">login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="logout" class="nav-link">LogOut</a>
+                        <a href="logout" class="nav-link">log out</a>
                     </li>
                 </ul>
-                <form id="buscar" class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="buscar">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
         <figure class="banner">

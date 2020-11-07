@@ -27,9 +27,16 @@
             }
         }
         function InsertMarca(){
-            $this->model->InsertMarca($_POST['nombre_input'],$_POST['origen_input']);
-            $marcas = $this->model->GetMarcas();
-            $this->vista->renderMarcasLogged($marcas);
+            $nombre = $_POST['nombre_input'];
+            $origen = $_POST['origen_input'];
+            if(!empty($_POST['nombre_input']) && !empty($_POST['origen_input'])){
+                $this->model->InsertMarca($_POST['nombre_input'],$_POST['origen_input']);
+                $marcas = $this->model->GetMarcas();
+                $this->vista->renderMarcasLogged($marcas);
+            }else{
+                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $this->vista->showError($error);
+            }     
          }
         function BorrarMarcas($params = null){
             $id_marcas = $params[':ID'];
@@ -51,9 +58,14 @@
             $nombre = $_POST['nombre_input'];
             $origen = $_POST['origen_input'];
             $id_marca = $params[":ID"];
-            $this->model->EditMarca($nombre, $origen, $id_marca);
-            $marcas = $this->model->GetMarcas();
-            $this->vista->renderMarcasLogged($marcas);
+            if(!empty($_POST['nombre_input']) && !empty($_POST['origen_input'])){
+                $this->model->EditMarca($nombre, $origen, $id_marca);
+                $marcas = $this->model->GetMarcas();
+                $this->vista->renderMarcasLogged($marcas);
+            }else{
+                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $this->vista->showError($error);
+            }    
         }
-    }
+     }
 ?>

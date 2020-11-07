@@ -38,6 +38,11 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('marcas', $marcas);
             $smarty->display('templates/formEdit.tpl'); 
         }
+        function showError($error){
+            $smarty = new Smarty;
+            $smarty->assign('error', $error);
+            $smarty->display('templates/error.tpl');
+        }
         function ShowHomeLocation(){
             header("Location: ".BASE_URL."home");
         }
