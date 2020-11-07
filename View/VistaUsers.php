@@ -23,15 +23,12 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('titulo', $this->titulo);
             $smarty->display('templates/adminHome.tpl');
         }
-        function showTable($users, $rol){
+        function showTable($users){
             $smarty = new Smarty();
             /*$smarty->assign(nombre de administrador)*/
             $smarty->assign('usuarios', $users);
+            /*$smarty->assign('usuario', $a);*/
             $smarty->display('templates/usersTable.tpl');
-        }
-        function formPermisos(){
-            $smarty = new Smarty();
-            $smarty->display("templates/formPermisos.tpl");
         }
         function ShowLogin($message = ""){
             $smarty = new Smarty();

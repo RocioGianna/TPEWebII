@@ -26,16 +26,16 @@
         }
         function usersTable(){
             $users = $this->model->GetUsers();
-            $rol = $this->model->getRol();
+           /* $rol = $this->model->getRol();
             $a = "";
-            if($rol == 0){
+            foreach ($users as $i){
+                if($i->rol == 0){
                 $a = "Registrado";
             }else{
                 $a = "Administrador";
             }
-           /* var_dump($rol);
-            die;*/
-            $this->vista->showTable($users, $rol);
+            }*/
+            $this->vista->showTable($users);
         }
         function deleteUser($params = null){
             $id = $params[':ID'];

@@ -14,13 +14,7 @@
             {foreach from= $usuarios item=i }
             <tr scope="row">
                 <td>{$i->email}</td>
-               {if $i->rol == 0}
-                    <td>Registrado</td>
-                    <td><button type="submit" class="btn btn-light"><a href="darPermiso/{$i->id}">Dar permiso</a></button></td>
-               {else}
-                    <td>Administrador</td>
-                    <td><button type="submit" class="btn btn-light"><a href="quitarPermiso/{$i->id}">Quitar permiso</a></button></td>
-                {/if}
+                <td>{$i->rol}</td>
                 <td><button type="submit" class="btn btn-light"><a href="deleteUser/{$i->id}">Eliminar</a></button></td>
             </tr>
             {/foreach}
