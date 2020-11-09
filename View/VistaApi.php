@@ -6,16 +6,6 @@ require_once "./libs/smarty/Smarty.class.php";
 
         function __construct(){
             $this->titulo = "FlyShoes";
-        }        
-        function ShowFormComent($item){
-            $smarty = new Smarty();
-            $smarty->assign('item', $item);
-            $smarty->display('templates/formComents.tpl'); 
-        }
-        function ShowFormNote($items){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/note.tpl'); 
         }
         public function response($data, $status) {
             header("Content-Type: application/json");
@@ -29,7 +19,18 @@ require_once "./libs/smarty/Smarty.class.php";
                 500 => "Internal Server Error"     
             );      
             return (isset($status[$code]))? $status[$code] : $status[500];    
-    }
+        }
 
+      /*  function ShowFormComent($item){
+            $smarty = new Smarty();
+            $smarty->assign('item', $item);
+            $smarty->display('templates/formComents.tpl'); 
+        }
+        function ShowFormNote($items){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->titulo);
+            $smarty->display('templates/note.tpl'); 
+        }
+         */
         
     }
