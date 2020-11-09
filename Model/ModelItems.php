@@ -44,7 +44,7 @@
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
-        function deleteComent($id){
+        function deleteComent($id){ //TODAVIA NO FUNCIONA
             $sentencia = $this->db->prepare("DELETE FROM opiniones WHERE $id_comentario=?");
             $sentencia->execute(array($id));
         }
