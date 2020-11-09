@@ -1,10 +1,11 @@
 <?php
-    require_once './View/VistaApi.php';
-    require_once './Model/ModelItems.php';
+require_once './Model/ModelItems.php';
+require_once 'ControllerApiAbstract.php';
 
-    class ControllerApi {
-        
+    class ControllerApi extends ControllerApiAbstract{
+
         function __construct(){
+             parent::__construct();
              $this->vista = new VistaApi();
              $this->model = new ModelItems();
         }
@@ -12,35 +13,47 @@
             $comentarios = $this->model->getComentarios();
             $this->vista->response($comentarios, 200);
         }
-        function getComent($params = null){
+        function getComentProducto($params = null){
             $id = $params[':ID'];
-            $comentario = $this->model->getComentario($id);
+            $comentario = $this->model->getComentarioProducto($id);
             if($comentario){
                 $this->vista->response($comentario, 200);
             }else{
                 $this->vista->response("El comentario con el id=$id no existe", 404);
             }
         }
-        function deleteComent($params = null){ //TODAVIA NO FUNCIONA EL BORRAR
+        function getComent($params = null){
             $id = $params[':ID'];
-            $this->model->deleteComent($id);
-            $this->vista->response("Borrado", 200);
+            $comentario = $this->model->getComentario($id);
+            $this->vista->response($comentario, 200);
         }
-       /* public function getFormComent($params = null){
-            $id_zapatilla = $params[':ID'];
-            $item = $this->model->GetInfo($id_zapatilla);
-            $this->vista->ShowFormComent($item); //esto va con un response
+        function addComent($params = null){
+            $id = $params[':ID'];
+            $body = $this->getData();
+            $comentario = $body->comentario;
+            $nota = $body->nota;
+            $comentario = $this->model->addComentario($id,$comentario, $nota);
+            if($comentario){
+                $this->vista->response($this->model->getComentario($id), 200);
+            }else{
+                $this->vista->response("El comentario no se pudo insertar", 404);
+            }
         }
+        function deleteComent($params = null){ 
+            $id = $params[':ID'];
+            $comentario = $this->model->getComentario($id);
+            if (!empty($comentario)) {
+                $this->model->deleteComentario($id);
+                $this->view->response("Comentario id=$id eliminado con éxito", 200);
+            }else {
+                $this->view->response("Comentario id=$id not found", 404);
+            }
+        }
+/*
         public function getFormNote($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
             $this->vista->ShowFormComent($item); //esto va con un response
-        }
-        public function addComent($params = null){
-            $body = $this->getData();
-            $titulo = $body->titulo;
-            $descripcion = $body->descripcion;
-            $tarea = $this->model->addComent($body->$titulo, $body->$descripcion);
         }
 */
     }

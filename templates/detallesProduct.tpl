@@ -9,6 +9,7 @@
                     <th scope="col">Talle</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Comentarios</th>
                 </tr>
             </thead>
             <tbody>

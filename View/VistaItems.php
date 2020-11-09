@@ -7,10 +7,11 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function DetalleProduct($item){
+        function DetalleProduct($item, $comentario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
+           // $smarty->assign('comentario', $comentario);
             $smarty->display('templates/detallesProduct.tpl'); 
         }
         function ShowItems($items){

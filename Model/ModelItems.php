@@ -39,13 +39,23 @@
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
-        function getComentario($id){
+        function getComentarioProducto($id){
             $sentencia = $this->db->prepare("SELECT comentario, nota FROM opiniones JOIN zapatillas ON opiniones.id_producto = zapatillas.id_zapatilla WHERE zapatillas.id_zapatilla = ?");
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
-        function deleteComent($id){ //TODAVIA NO FUNCIONA
-            $sentencia = $this->db->prepare("DELETE FROM opiniones WHERE $id_comentario=?");
+        function getComentario($id){
+            $sentencia = $this->db->prepare("SELECT * FROM opiniones WHERE id_comentario=?");
+            $sentencia->execute(array($id));
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+        function addComentario($id,$comentario, $nota){
+            $sentencia = $this->db->prepare("INSERT INTO opiniones(id_producto, comentario, nota) VALUES(?,?,?)");
+            $sentencia->execute(array($id,$comentario, $nota));
+            return $this->db->lastInsertId();
+        }
+        function deleteComentario($id){ 
+            $sentencia = $this->db->prepare("DELETE FROM opiniones WHERE id_comentario=?");
             $sentencia->execute(array($id));
         }
     }

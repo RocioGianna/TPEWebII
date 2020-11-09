@@ -5,8 +5,10 @@ require_once 'Controller/ControllerApi.php';
 $r = new Router();
 
 $r->addRoute("comentarios", "GET", "ControllerApi", "getComents");
-$r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComent");
+$r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent");
+$r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComentProducto");
 $r->addRoute("deleteComentario/:ID", "DELETE", "ControllerApi", "deleteComent");
+$r->addRoute("comentar", "POST", "ControllerApi", "addComent");
 /*
 $r->addRoute("comentar/:ID", "GET", "ControllerApi", "getFormComent");
 $r->addRoute("notar/:ID", "GET", "ControllerApi", "getFormNote");*/
