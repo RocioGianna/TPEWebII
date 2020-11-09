@@ -6,9 +6,12 @@ $r = new Router();
 
 $r->addRoute("comentarios", "GET", "ControllerApi", "getComents");
 $r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComent");
-$r->addRoute("deleteComentario/:ID", "DELETE", "ControllerApi", "deleteComent");
-/*
-$r->addRoute("comentar/:ID", "GET", "ControllerApi", "getFormComent");
-$r->addRoute("notar/:ID", "GET", "ControllerApi", "getFormNote");*/
+$r->addRoute("borrarCom/:ID", "GET", "ControllerApi", "deleteComent");
 
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
+
+
+/*
+$r->addRoute("notar/:ID", "GET", "ControllerApi", "getFormNote");
+*/
+

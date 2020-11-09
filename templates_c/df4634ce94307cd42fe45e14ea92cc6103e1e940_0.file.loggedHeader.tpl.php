@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-25 01:01:28
+/* Smarty version 3.1.34-dev-7, created on 2020-11-08 06:00:34
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\loggedHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f94b2485db3b2_46551811',
+  'unifunc' => 'content_5fa77b72510a42_36473379',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df4634ce94307cd42fe45e14ea92cc6103e1e940' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\loggedHeader.tpl',
-      1 => 1603579633,
+      1 => 1604785357,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f94b2485db3b2_46551811 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa77b72510a42_36473379 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,19 +62,17 @@ function content_5f94b2485db3b2_46551811 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="newuser" class="nav-link suscribir">Suscribir</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login" class="nav-link">Login</a>
+                        <a href="login" class="nav-link">login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="logout" class="nav-link">LogOut</a>
+                        <a href="logout" class="nav-link">log out</a>
                     </li>
-                    <div class="alert alert-success" role="alert">
+                </ul>
+                <div>
+                     <div class="alert alert-success" role="alert">
                         Conectado
                     </div>
-                </ul>
-                <form id="buscar" class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="buscar">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
+                </div>
             </div>
         </nav>
         <figure class="banner">
@@ -85,7 +83,6 @@ function content_5f94b2485db3b2_46551811 (Smarty_Internal_Template $_smarty_tpl)
                 <li class="list-group-item"><a href="./productos">Productos</a></li>
                 <li class="list-group-item"><a href="./marcas">Marcas</a></li>
                 <li class="list-group-item" id="promocion"><a href="#">Ofertas</a></li>
-                <li class="list-group-item" id="reparto"><a>Reparto</a></li>
             </ul>
         </aside>  <?php }
 }

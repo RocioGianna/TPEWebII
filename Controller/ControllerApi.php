@@ -21,12 +21,19 @@
                 $this->vista->response("El comentario con el id=$id no existe", 404);
             }
         }
-        function deleteComent($params = null){ //TODAVIA NO FUNCIONA EL BORRAR
+        function deleteComent($params = null){
             $id = $params[':ID'];
-            $this->model->deleteComent($id);
-            $this->vista->response("Borrado", 200);
+            $comentario = $this->model->deleteComent($id);
+            if (!empty($comentario)) {
+                $this->vista->response("El comentario se borro", 200);
+            } else{
+                $this->vista->response("El comentario no existe", 404);
+            }
         }
-       /* public function getFormComent($params = null){
+    }
+    
+    /*
+     public function getFormComent($params = null){
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
             $this->vista->ShowFormComent($item); //esto va con un response
@@ -43,5 +50,4 @@
             $tarea = $this->model->addComent($body->$titulo, $body->$descripcion);
         }
 */
-    }
 

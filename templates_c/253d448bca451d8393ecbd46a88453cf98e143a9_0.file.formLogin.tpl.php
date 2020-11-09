@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-25 00:48:10
+/* Smarty version 3.1.34-dev-7, created on 2020-11-08 16:40:21
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\formLogin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f94af2a49e751_93358605',
+  'unifunc' => 'content_5fa81165068cd5_66612706',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '253d448bca451d8393ecbd46a88453cf98e143a9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\formLogin.tpl',
-      1 => 1603579633,
+      1 => 1604702850,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f94af2a49e751_93358605 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa81165068cd5_66612706 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
@@ -43,6 +43,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     <input type="password" class="form-control" placeholder="clave" name="pass_input" >
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+                <a href="newuser">Create una cuenta</a>
             </form>
         </div>
     </div>

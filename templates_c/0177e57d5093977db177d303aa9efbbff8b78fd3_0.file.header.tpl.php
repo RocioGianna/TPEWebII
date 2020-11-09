@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-25 00:48:06
+/* Smarty version 3.1.34-dev-7, created on 2020-11-08 16:40:21
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f94af26ee59c6_03269148',
+  'unifunc' => 'content_5fa811650f48d3_53756935',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0177e57d5093977db177d303aa9efbbff8b78fd3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\header.tpl',
-      1 => 1603579633,
+      1 => 1604785357,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f94af26ee59c6_03269148 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa811650f48d3_53756935 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,16 +62,12 @@ function content_5f94af26ee59c6_03269148 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="newuser" class="nav-link suscribir">Suscribir</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login" class="nav-link">Login</a>
+                        <a href="login" class="nav-link">login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="logout" class="nav-link">LogOut</a>
+                        <a href="logout" class="nav-link">log out</a>
                     </li>
                 </ul>
-                <form id="buscar" class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="buscar">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
         <figure class="banner">
@@ -82,7 +78,6 @@ function content_5f94af26ee59c6_03269148 (Smarty_Internal_Template $_smarty_tpl)
                 <li class="list-group-item"><a href="./productos">Productos</a></li>
                 <li class="list-group-item"><a href="./marcas">Marcas</a></li>
                 <li class="list-group-item" id="promocion"><a href="#">Ofertas</a></li>
-                <li class="list-group-item" id="reparto"><a>Reparto</a></li>
             </ul>
         </aside>            <?php }
 }
