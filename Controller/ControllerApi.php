@@ -18,17 +18,17 @@
             if($comentario){
                 $this->vista->response($comentario, 200);
             }else{
-                $this->vista->response("La comentario con el id=$id no existe", 404);
+                $this->vista->response("El comentario con el id=$id no existe", 404);
             }
+        }
+        function deleteComent($params = null){ //TODAVIA NO FUNCIONA EL BORRAR
+            $id = $params[':ID'];
+            $this->model->deleteComent($id);
+            $this->vista->response("Borrado", 200);
         }
        /* public function getFormComent($params = null){
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
-            $this->vista->ShowFormComent($item); //esto va con un response
-        }
-        public function deleteComent($params = null){
-            $id_zapatilla = $params[':ID'];
-            $item = $this->model->deleteComent($id_zapatilla);
             $this->vista->ShowFormComent($item); //esto va con un response
         }
         public function getFormNote($params = null){ 
