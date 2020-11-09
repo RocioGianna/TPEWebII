@@ -9,8 +9,8 @@ $r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent"); //trae un comen
 $r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComentProducto"); //trae los comentarios de un producto
 $r->addRoute("deleteComentario/:ID", "DELETE", "ControllerApi", "deleteComent"); //borra un comentario
 $r->addRoute("comentar", "POST", "ControllerApi", "addComent"); //se puede comentar
-/*
-$r->addRoute("comentar/:ID", "GET", "ControllerApi", "getFormComent");
+
+/*$r->addRoute("comentar/:ID", "GET", "ControllerApi", "getFormComent");
 $r->addRoute("notar/:ID", "GET", "ControllerApi", "getFormNote");*/
 
 
