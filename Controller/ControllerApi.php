@@ -56,5 +56,4 @@ require_once 'ControllerApiAbstract.php';
             $this->vista->ShowFormComent($item); //esto va con un response
         }
 */
-    }
 

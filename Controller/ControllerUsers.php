@@ -69,7 +69,7 @@
                 $_SESSION["rol"] = $tipo;
                 $this->vista->Home();
             }else{
-                $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
+                $error = "No puede dejar un campo incompleto, vuelva a intentarlo";
                 $this->view->showError($error);
             }
         }
