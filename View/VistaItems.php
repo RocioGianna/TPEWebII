@@ -38,6 +38,16 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('error', $error);
             $smarty->display('templates/error.tpl');
         }
+        function showFormBusqueda($productos){
+            $smarty = new Smarty;
+            $smarty->assign('marcas', $productos);
+            $smarty->display('templates/formBusqueda.tpl');
+        }
+        function showCoincidencias($productos){
+            $smarty = new Smarty;
+            $smarty->assign('items', $productos);
+            $smarty->display('templates/productosBusqueda.tpl');
+        }
         function ShowHomeLocation(){
             header("Location: ".BASE_URL."home");
         }

@@ -18,6 +18,9 @@
     $r->addRoute("showEditForm/:ID", "GET", "ControllerItems", "ShowEditForm");
     $r->addRoute("editItem/:ID", "POST", "ControllerItems", "Edit");
     $r->addRoute("eliminar/:ID", "GET", "ControllerItems", "Borrar");
+    //opcional filtro de productos 
+    $r->addRoute("formFiltro", "GET", "ControllerItems", "formBusqueda");
+    $r->addRoute("busqueda", "POST", "ControllerItems", "busqueda");
 
     //ABM Categorias (categoria/marcas)
     $r->addRoute("marcas", "GET", "ControllerMarca", "ShowMarcas");
