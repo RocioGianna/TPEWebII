@@ -2,8 +2,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-5">
-        <h1 class="justify-content-center">Busque el producto que necesita</h1>
+        <h1 class="justify-content-center">Filtro</h1>
             <form action="busqueda" method="post">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Talle" name="talle_input" >
+                </div>
                 <div class="form-group">
                     <input class="form-control" placeholder="Precio hasta" name="precio_input" >
                 </div>

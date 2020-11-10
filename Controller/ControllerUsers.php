@@ -105,5 +105,12 @@
                 }
             }
         }
+        function userTipe(){
+            if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

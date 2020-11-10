@@ -1,6 +1,6 @@
  {include file="loggedHeader.tpl"}
     <div class="container">
-        <h1 class="justify-content-center">Productos</h1>
+        <h1 class="justify-content-center">Productos disponibles</h1>
         <button type="submit" class="btn btn-light"><a href="formFiltro/">Busqueda Avanzada</a></button>
         <table class="table table-dark">
             <thead>

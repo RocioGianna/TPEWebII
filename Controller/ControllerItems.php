@@ -3,29 +3,34 @@
     require_once './Model/ModelItems.php';
     require_once './Model/ModelMarca.php';
     require_once './Controller/Helper.php';
+    require_once './Controller/ControllerUsers.php';
 
     class ControllerItems{
         private $vista;
         private $model;
         private $modelM;
         private $helper;
+        private $user;
 
         function __construct(){
              $this->vista = new VistaItems();
              $this->model = new ModelItems();
              $this->modelM = new ModelMarcas();
              $this->helper = new Helper();
+             $this->user = new ControllerUsers();
         }
 
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
             $usuarioLogueado = $this->helper->checkLoggedIn();
-            //if($usuarioLogueado){
-              //  $this->vista->ShowItemsAdmin($items, $marcas);
-            //}
+
             if($usuarioLogueado){
-                $this->vista->ShowItemsLogged($items, $marcas);
+                if($Admin){
+                    $this->vista->ShowItemsAdmin($items, $marcas);
+                }else{
+                    $this->vista->ShowItemsLogged($items, $marcas);
+                }
             }else{
                 $this->vista->ShowItems($items);
             }
@@ -82,13 +87,14 @@
             $this->vista->showFormBusqueda($productos);
         }
         function busqueda(){
+            $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            $productos = $this->model->getProducto( $precio, $nombre);
+            $productos = $this->model->getProducto( $talle,$precio, $nombre);
             if($productos){
                 $this->vista->showCoincidencias($productos);
             }else{
-                $error = "No se encontraron zapatillas en ese rango de precio";
+                $error = "No se encontraron zapatillas con esas condiciones";
                 $this->vista->showError($error);
             }
             
