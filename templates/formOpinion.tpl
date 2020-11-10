@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Información del producto </h1>
         <table class="table table-dark">
@@ -29,15 +29,25 @@
         </table>
     </div>
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-6">
             <h4>Comentarios del producto</h4>
-            {foreach from= $item item=i }
             <ul class="list-group" id="listComents">
-            <li>{$i->comentarios}</li> 
             </ul>
-            {/foreach}
         </div>
-        <div class="col-4">
+        <div class="col-2">
+            <h4>Nota del producto</h4>
+        </div>
+        
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h4>Comentar</h4>
+            <form id="formComent" action="insert" method="post">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+        <div class="col-2">
             <h4>Notar</h4>
             <label for="exampleFormControlSelect1">Ingresar una nota al producto</label>
             <select class="form-control">
@@ -48,16 +58,6 @@
                 <option>5</option>
             </select>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <h4>Comentar</h4>
-            <form id="formComent" action="insert" method="post">
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-                <button type="submit" class="btn btn-primary">Agregar</button>
-            </form>
-        </div>
-        <div class="col-4"></div>
     </div>
     <script src="js/opinion.js"></script>
     {include file="footer.tpl"}

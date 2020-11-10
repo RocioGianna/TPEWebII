@@ -34,18 +34,8 @@
             return $sentencia->fetchAll( PDO::FETCH_OBJ );
         }
         //model para comentarios
-        function getComentarios(){
-            $sentencia = $this->db->prepare("SELECT * FROM opiniones");
-            $sentencia->execute();
-            return $sentencia->fetchAll(PDO::FETCH_OBJ);
-        }
         function getComentarioProducto($id){
             $sentencia = $this->db->prepare("SELECT comentario, nota FROM opiniones JOIN zapatillas ON opiniones.id_producto = zapatillas.id_zapatilla WHERE zapatillas.id_zapatilla = ?");
-            $sentencia->execute(array($id));
-            return $sentencia->fetchAll(PDO::FETCH_OBJ);
-        }
-        function getComentario($id){
-            $sentencia = $this->db->prepare("SELECT * FROM opiniones WHERE id_comentario=?");
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
@@ -58,5 +48,16 @@
             $sentencia = $this->db->prepare("DELETE FROM opiniones WHERE id_comentario=?");
             $sentencia->execute(array($id));
         }
+        function getComentario($id){
+            $sentencia = $this->db->prepare("SELECT * FROM opiniones WHERE id_comentario=?");
+            $sentencia->execute(array($id));
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+        function getComentarios(){
+            $sentencia = $this->db->prepare("SELECT * FROM opiniones");
+            $sentencia->execute();
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
+
     }
 ?>

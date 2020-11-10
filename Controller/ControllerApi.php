@@ -9,23 +9,15 @@ require_once 'ControllerApiAbstract.php';
              $this->vista = new VistaApi();
              $this->model = new ModelItems();
         }
-        function getComents(){
-            $comentarios = $this->model->getComentarios();
-            $this->vista->response($comentarios, 200);
+        public function getFormOpinion($params = null){ 
+            $id_zapatilla = $params[':ID'];
+            $item = $this->model->GetInfo($id_zapatilla);
+            $this->vista->ShowFormComent($item);
         }
-        function getComentProducto($params = null){
+        public function getComentProducto($params = null){
             $id = $params[':ID'];
-            $comentario = $this->model->getComentarioProducto($id);
-            if($comentario){
-                $this->vista->response($comentario, 200);
-            }else{
-                $this->vista->response("El comentario con el id=$id no existe", 404);
-            }
-        }
-        function getComent($params = null){
-            $id = $params[':ID'];
-            $comentario = $this->model->getComentario($id);
-            $this->vista->response($comentario, 200);
+            $comentarios = $this->model->getComentarioProducto($id);
+            return $this->vista->response($comentarios, 200);
         }
         function addComent($params = null){
             $id = $params[':ID'];
@@ -49,10 +41,15 @@ require_once 'ControllerApiAbstract.php';
                 $this->view->response("Comentario id=$id not found", 404);
             }
         }
-        public function getFormOpinion($params = null){ 
-            $id_zapatilla = $params[':ID'];
-            $item = $this->model->GetInfo($id_zapatilla);
-            $this->vista->ShowFormComent($item);
-        }
     }
+        /*function getComent($params = null){
+            $id = $params[':ID'];
+            $comentarios = $this->model->getComentario($id);
+            $this->vista->response($comentarios, 200);
+        }
+        function getComents(){
+            $comentarios = $this->model->getComentarios();
+            $this->vista->response($comentarios, 200);
+        }
+        */
 
