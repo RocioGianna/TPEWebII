@@ -21,6 +21,9 @@
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
             $usuarioLogueado = $this->helper->checkLoggedIn();
+            //if($usuarioLogueado){
+              //  $this->vista->ShowItemsAdmin($items, $marcas);
+            //}
             if($usuarioLogueado){
                 $this->vista->ShowItemsLogged($items, $marcas);
             }else{
@@ -73,6 +76,22 @@
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
             }
+        }
+        function formBusqueda(){
+            $productos = $this->modelM->GetMarcas();
+            $this->vista->showFormBusqueda($productos);
+        }
+        function busqueda(){
+            $precio = $_POST["precio_input"];
+            $nombre = $_POST["marca_input"];
+            $productos = $this->model->getProducto( $precio, $nombre);
+            if($productos){
+                $this->vista->showCoincidencias($productos);
+            }else{
+                $error = "No se encontraron zapatillas en ese rango de precio";
+                $this->vista->showError($error);
+            }
+            
         }
     }
 ?>

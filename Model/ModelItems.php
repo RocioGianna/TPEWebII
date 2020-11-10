@@ -59,5 +59,11 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
 
+        //Busqueda avanzada 
+        function getProducto($precio, $nombre){
+            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE precio <= ? AND stock > 0 AND marcas.id_marca=? ORDER BY precio ASC");
+            $sentence->execute(array( $precio, $nombre));
+            return $sentence->fetchAll( PDO::FETCH_OBJ );
+        }
     }
 ?>

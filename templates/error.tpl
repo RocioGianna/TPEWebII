@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
 <div class="container">
     <div  class="alert alert-danger" role="alert">
     {$error}
