@@ -29,20 +29,35 @@
         </table>
     </div>
     <div class="row justify-content-center">
-        <div class="col-5">
-        <h4>Comentar</h4>
+        <div class="col-8">
+            <h4>Comentarios del producto</h4>
+            {foreach from= $item item=i }
+            <ul class="list-group" id="listComents">
+            <li>{$i->comentarios}</li> 
+            </ul>
+            {/foreach}
+        </div>
+        <div class="col-4">
+            <h4>Notar</h4>
+            <label for="exampleFormControlSelect1">Ingresar una nota al producto</label>
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h4>Comentar</h4>
             <form id="formComent" action="insert" method="post">
                 <textarea class="form-control" aria-label="With textarea"></textarea>
                 <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
         </div>
-        <div class="col-5">
-            <h4>Comentarios del producto</h4>
-            {foreach from= $item item=i }
-            <ul class="list-group" id="comentarios">
-            <li>{$i->comentarios}</li> 
-            </ul>
-            {/foreach}
-        </div>
+        <div class="col-4"></div>
     </div>
+    <script src="js/opinion.js"></script>
     {include file="footer.tpl"}

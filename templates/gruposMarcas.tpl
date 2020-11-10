@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Tabla de la marca</h1>
         <table class="table table-dark">

@@ -1,29 +1,29 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-08 16:40:21
+/* Smarty version 3.1.34-dev-7, created on 2020-11-10 01:11:34
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\formLogin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa81165068cd5_66612706',
+  'unifunc' => 'content_5fa9dab6886be1_80026982',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '253d448bca451d8393ecbd46a88453cf98e143a9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\formLogin.tpl',
-      1 => 1604702850,
+      1 => 1604967089,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:header.tpl' => 1,
+    'file:userHeader.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5fa81165068cd5_66612706 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_5fa9dab6886be1_80026982 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:userHeader.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container">
     <div class="row justify-content-center">

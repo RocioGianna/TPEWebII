@@ -1,4 +1,4 @@
-{include file="loggedAdmin.tpl"}
+{include file="adminHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Usuarios</h1>
        <table class="table table-dark">

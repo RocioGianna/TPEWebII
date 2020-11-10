@@ -50,8 +50,7 @@
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
-            $comentario = $this->model->getComentario($id_zapatilla);
-            $this->vista->DetalleProduct($item, $comentario);
+            $this->vista->DetalleProduct($item);
         }
         function ShowEditForm($params = null){
             $id_item = $params[":ID"];

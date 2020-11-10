@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Información del producto </h1>
         <table class="table table-dark">
@@ -9,7 +9,6 @@
                     <th scope="col">Talle</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Stock</th>
-                    <th scope="col">Comentarios</th>
                 </tr>
             </thead>
             <tbody>

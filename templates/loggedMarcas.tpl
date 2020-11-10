@@ -24,5 +24,5 @@
             </tbody>
         </table>
     </div>
-    {include file="agregarMarca.tpl"}
+    {include file="insertMarca.tpl"}
     {include file="footer.tpl"}

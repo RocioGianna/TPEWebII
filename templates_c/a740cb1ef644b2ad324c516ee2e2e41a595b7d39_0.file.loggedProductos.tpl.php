@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-09 18:38:52
+/* Smarty version 3.1.34-dev-7, created on 2020-11-10 01:13:05
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\loggedProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa97eac5639b2_77489435',
+  'unifunc' => 'content_5fa9db113c5b93_78491549',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a740cb1ef644b2ad324c516ee2e2e41a595b7d39' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\loggedProductos.tpl',
-      1 => 1604943524,
+      1 => 1604965954,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5fa97eac5639b2_77489435 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa9db113c5b93_78491549 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:loggedHeader.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="container">
@@ -36,8 +36,7 @@ $_smarty_tpl->_subTemplateRender("file:loggedHeader.tpl", $_smarty_tpl->cache_id
                     <th scope="col">Consultar</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
-                    <th scope="col">Comentar</th>
-                    <th scope="col">Notar</th>
+                    <th scope="col">Deja tu opinion</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,10 +57,8 @@ $_smarty_tpl->tpl_vars['i']->do_else = false;
 ">Editar</a></button></td>
                 <td><button type="submit" class="btn btn-danger"><a href="./eliminar/<?php echo $_smarty_tpl->tpl_vars['i']->value->id_zapatilla;?>
 ">Eliminar</a></button></td>
-                <td><button type="submit" class="btn btn-light"><a href="api/comentario/<?php echo $_smarty_tpl->tpl_vars['i']->value->id_zapatilla;?>
-">Comentar</a></button></td>
-                <td><button type="submit" class="btn btn-light"><a href="api/notar/<?php echo $_smarty_tpl->tpl_vars['i']->value->id_zapatilla;?>
-">Puntuar</a></button></td>
+                <td><button type="submit" class="btn btn-light"><a href="api/comentar/<?php echo $_smarty_tpl->tpl_vars['i']->value->id_zapatilla;?>
+">Opinar</a></button></td>
             </tr>
             <?php
 }

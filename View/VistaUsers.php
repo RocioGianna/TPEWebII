@@ -11,12 +11,12 @@ require_once "./libs/smarty/Smarty.class.php";
         function Home(){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/main.tpl'); 
+            $smarty->display('templates/userHome.tpl'); 
         }
         function HomeLogged(){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/loggedMain.tpl'); 
+            $smarty->display('templates/loggedHome.tpl'); 
         }
         function AdminHome(){
             $smarty = new Smarty();
@@ -27,7 +27,7 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty = new Smarty();
             /*$smarty->assign(nombre de administrador)*/
             $smarty->assign('usuarios', $users);
-            $smarty->display('templates/usersTable.tpl');
+            $smarty->display('templates/adminGestion.tpl');
         }
         function ShowLogin($message = ""){
             $smarty = new Smarty();

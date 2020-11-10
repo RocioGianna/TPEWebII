@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Tabla de todos las marcas de {$titulo}</h1>
         <table class="table table-dark">
@@ -20,5 +20,4 @@
             </tbody>
         </table>
     </div>
-
     {include file="footer.tpl"}

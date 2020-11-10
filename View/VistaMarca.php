@@ -18,7 +18,7 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/allMarcas.tpl'); 
+            $smarty->display('templates/userMarcas.tpl'); 
         }
         function renderMarcasLogged($marcas){
             $smarty = new Smarty();

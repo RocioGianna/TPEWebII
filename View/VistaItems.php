@@ -7,32 +7,31 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function DetalleProduct($item, $comentario){
+        function DetalleProduct($item){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
-           // $smarty->assign('comentario', $comentario);
             $smarty->display('templates/detallesProduct.tpl'); 
         }
         function ShowItems($items){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('items', $items);
-            $smarty->display('templates/allItems.tpl'); 
+            $smarty->display('templates/userProducts.tpl'); 
         }
         function ShowItemsLogged($items, $marcas){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('items', $items);
             $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/loggedProductos.tpl'); 
+            $smarty->display('templates/loggedProducts.tpl'); 
         }
         function ShowFormEdit($item, $marcas){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
             $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/formEdit.tpl'); 
+            $smarty->display('templates/formEditProduct.tpl'); 
         }
         function showError($error){
             $smarty = new Smarty;

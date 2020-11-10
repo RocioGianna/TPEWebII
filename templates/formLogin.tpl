@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="userHeader.tpl"}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-5">
