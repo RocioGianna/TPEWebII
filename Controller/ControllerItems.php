@@ -87,13 +87,14 @@
             $this->vista->showFormBusqueda($productos);
         }
         function busqueda(){
+            $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            $productos = $this->model->getProducto( $precio, $nombre);
+            $productos = $this->model->getProducto( $talle,$precio, $nombre);
             if($productos){
                 $this->vista->showCoincidencias($productos);
             }else{
-                $error = "No se encontraron zapatillas en ese rango de precio";
+                $error = "No se encontraron zapatillas con esas condiciones";
                 $this->vista->showError($error);
             }
             
