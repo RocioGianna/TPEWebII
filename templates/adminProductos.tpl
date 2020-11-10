@@ -1,4 +1,4 @@
-{include file="admindHeader.tpl"}
+{include file="adminHeader.tpl"}
     <div class="container">
         <h1 class="justify-content-center">Productos</h1>
         <table class="table table-dark">
