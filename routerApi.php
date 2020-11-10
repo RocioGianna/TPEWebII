@@ -6,7 +6,7 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 
 $r = new Router();
 
-$r->addRoute("comentarios", "GET", "ControllerApi", "getComents"); //trae todos los comentarios
+/*$r->addRoute("comentarios", "GET", "ControllerApi", "getComents"); //trae todos los comentarios*/
 $r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent"); //trae un comentario especifico
 $r->addRoute("opinion/:ID", "GET", "ControllerApi", "getFormOpinion"); //trae los comentarios de un producto
 $r->addRoute("deleteComentario/:ID", "GET", "ControllerApi", "deleteComent"); //borra un comentario

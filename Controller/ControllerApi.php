@@ -19,6 +19,11 @@ require_once 'ControllerApiAbstract.php';
             $comentarios = $this->model->getComentarioProducto($id);
             return $this->vista->response($comentarios, 200);
         }
+        function getComent($params = null){
+            $id = $params[':ID'];
+            $comentarios = $this->model->getComentario($id);
+            $this->vista->response($comentarios, 200);
+        }
         function addComent($params = null){
             $id = $params[':ID'];
             $body = $this->getData();
@@ -42,11 +47,7 @@ require_once 'ControllerApiAbstract.php';
             }
         }
     }
-        /*function getComent($params = null){
-            $id = $params[':ID'];
-            $comentarios = $this->model->getComentario($id);
-            $this->vista->response($comentarios, 200);
-        }
+        /*
         function getComents(){
             $comentarios = $this->model->getComentarios();
             $this->vista->response($comentarios, 200);
