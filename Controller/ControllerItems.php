@@ -24,7 +24,7 @@
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
             $usuarioLogueado = $this->helper->checkLoggedIn();
-
+            $Admin = $this->user->userTipe();
             if($usuarioLogueado){
                 if($Admin){
                     $this->vista->ShowItemsAdmin($items, $marcas);
