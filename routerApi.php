@@ -8,7 +8,8 @@ $r = new Router();
 
 /*$r->addRoute("comentarios", "GET", "ControllerApi", "getComents"); //trae todos los comentarios*/
 $r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent"); //trae un comentario especifico
-$r->addRoute("opinion/:ID", "GET", "ControllerApi", "getFormOpinion"); //trae los comentarios de un producto
+$r->addRoute("opinion/:ID", "GET", "ControllerApi", "getFormOpinion"); 
+$r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComentProducto");//trae los comentarios de un producto
 $r->addRoute("deleteComentario/:ID", "GET", "ControllerApi", "deleteComent"); //borra un comentario
 $r->addRoute("comentar", "POST", "ControllerApi", "addComent"); //se puede comentar
 
