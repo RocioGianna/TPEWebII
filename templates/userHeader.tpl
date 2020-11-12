@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
     <script src="js/partialrender.js"></script>
+    <script src="js/opinion.js"></script>
 </head>
 <body>
     <header>

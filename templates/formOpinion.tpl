@@ -32,6 +32,7 @@
         <div class="col-6">
             <h4>Comentarios del producto</h4>
             <ul class="list-group" id="listComents">
+
             </ul>
         </div>
         <div class="col-2">

@@ -1,7 +1,8 @@
 "use strict";
 
+document.addEventListener("DOMContentLoaded",  function (){
     function getComent(){
-    fetch("api/opinion")
+    fetch("api/comentarios")
         .then(response => response.json())
         .then(comentarios => console.log(comentarios))
         .then(error => console.log(error));
@@ -31,6 +32,7 @@
         .then(response => response.json())
         .catch(error => console.log(error));
     }
+}
 /*  async function getComent(){
     const listComents = document.querySelector("#listComents");
     let url = "http://localhost/web2/flyshoes.com/TPEWebII/api/opinion";

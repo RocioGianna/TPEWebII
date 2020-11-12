@@ -54,7 +54,7 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         function getComentarios(){
-            $sentencia = $this->db->prepare("SELECT * FROM opiniones");
+            $sentencia = $this->db->prepare("SELECT comentario FROM opiniones");
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }

@@ -12,6 +12,8 @@ require_once 'ControllerApiAbstract.php';
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
+            $comentarios = $this->model->getComentarios();
+            $this->vista->response($comentarios, 200);
             $this->vista->ShowFormComent($item);
         }
         public function getComentProducto($params = null){
@@ -46,11 +48,12 @@ require_once 'ControllerApiAbstract.php';
                 $this->view->response("Comentario id=$id not found", 404);
             }
         }
-    }
-        /*
-        function getComents(){
+        function getComents($params = null){
+            $id = $params[':ID'];
             $comentarios = $this->model->getComentarios();
             $this->vista->response($comentarios, 200);
         }
-        */
+    }
+        
+        
 
