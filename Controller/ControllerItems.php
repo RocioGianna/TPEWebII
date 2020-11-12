@@ -90,7 +90,12 @@
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            $productos = $this->model->getProducto( $talle,$precio, $nombre);
+            if ($nombre == 100){
+                $productos = $this->model->getProductoMarcas($talle, $precio);
+            }else{
+                $productos = $this->model->getProducto( $talle,$precio, $nombre);
+            }
+            
             if($productos){
                 $this->vista->showCoincidencias($productos);
             }else{

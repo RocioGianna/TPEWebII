@@ -61,8 +61,13 @@
 
         //Busqueda avanzada 
         function getProducto($talle, $precio, $nombre){
-            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE (talles = ? OR precio <= ?) AND stock > 0 AND marcas.id_marca=? ORDER BY precio ASC");
+            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE (talles = ? AND precio <= ?) AND stock > 0 AND marcas.id_marca=? ORDER BY precio ASC");
             $sentence->execute(array( $talle, $precio, $nombre));
+            return $sentence->fetchAll( PDO::FETCH_OBJ );
+        }
+        function getProductoMarcas($talle, $precio){
+            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE (talles = ? AND precio <= ?) AND stock > 0 ORDER BY precio ASC");
+            $sentence->execute(array( $talle, $precio));
             return $sentence->fetchAll( PDO::FETCH_OBJ );
         }
     }
