@@ -53,13 +53,23 @@
         }
         function Borrar($params = null){
             $id_zapatilla = $params[':ID'];
-            $this->model->BorrarItem($id_zapatilla);
-            $this->ShowItems();
+            if(isset($id_zapatilla)){
+                $this->model->BorrarItem($id_zapatilla);
+                $this->ShowItems();
+            }else{
+                $error = "El Id no existe";
+                $this->vista->showError($error);
+            }
         }
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];
-            $item = $this->model->GetInfo($id_zapatilla);
-            $this->vista->DetalleProduct($item);
+            if(isset($id_zapatilla)){
+                $item = $this->model->GetInfo($id_zapatilla);
+                $this->vista->DetalleProduct($item);
+            }else{
+                $error = "El Id no existe";
+                $this->vista->showError($error);
+            }
         }
         function ShowEditForm($params = null){
             $id_item = $params[":ID"];
@@ -82,6 +92,7 @@
                 $this->vista->showError($error);
             }
         }
+        //Busqueda avanzada
         function formBusqueda(){
             $productos = $this->modelM->GetMarcas();
             $this->vista->showFormBusqueda($productos);
@@ -90,19 +101,23 @@
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            if ($nombre == 100){
-                $productos = $this->model->getProductoMarcas($talle, $precio);
+            if(!empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['marca_input'])){
+                if ($nombre == 100){
+                    $productos = $this->model->getProductoMarcas($talle, $precio);
+                }else{
+                    $productos = $this->model->getProducto( $talle,$precio, $nombre);
+                }
+                if($productos){
+                    $this->vista->showCoincidencias($productos);
+                }else{
+                    $error = "No se encontraron zapatillas con esas condiciones";
+                    $this->vista->showError($error);
+                }
             }else{
-                $productos = $this->model->getProducto( $talle,$precio, $nombre);
-            }
-            
-            if($productos){
-                $this->vista->showCoincidencias($productos);
-            }else{
-                $error = "No se encontraron zapatillas con esas condiciones";
+                $error = "Ha ocurrido un error";
                 $this->vista->showError($error);
             }
-            
+           
         }
     }
 ?>
