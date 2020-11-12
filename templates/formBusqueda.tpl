@@ -11,9 +11,32 @@
                         <option  value="{$i->id_marca}">{$i->nombre}</option>
                     {/foreach}
                 </select>
+                <label>Seleccione su talle</label>
                 <div class="form-group">
-                <label>Busque por talle</label>
-                    <input class="form-control" placeholder="Talle" name="talle_input" >
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="37">
+                        <label class="form-check-label" >37</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="38">
+                        <label class="form-check-label" >38</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="39">
+                        <label class="form-check-label" >39</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="40">
+                        <label class="form-check-label" >40</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="41">
+                        <label class="form-check-label" >41</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="talle_input" id="inlineRadio1" value="42">
+                        <label class="form-check-label" >42</label>
+                    </div>
                 </div>
                 <label>Busque por rango de precio</label>
                 <div class="form-group">
