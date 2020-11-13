@@ -1,24 +1,29 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded",  function (){
-    function getComent(){
-    fetch("api/comentarios")
+function getComent(){
+    fetch('api/comentarios')
         .then(response => response.json())
-        .then(comentarios => console.log(comentarios))
-        .then(error => console.log(error));
+        .then(comentarios => renderCom(comentarios))
+        .then(notas => renderNota(notas))
+        .catch(error => console.log(error));
     }
 
-    getComent();
-
-
-    function render(comentarios){
+    function renderCom(comentarios){
         const listComents = document.querySelector("#listComents");
         for(let coment of comentarios){
-            listComents.innerHTML += 
-            '<li class="list-group-item">${coment.comentario}</li>';
+            listComents.innerHTML += `<li class="list-group-item">${coment.comentario}</li>`;
         }
     }
+    function renderNota(notas){
+        const listNotas = document.querySelector("#listNotas");
+        for(let nota of notas){
+            listNotas.innerHTML += `<li class="list-group-item">${nota.nota}</li>`;
+        }
+    }
+    getComent();
 
+    
+/*
     function addComent(){
         const item = {
             coment:"",
@@ -32,8 +37,8 @@ document.addEventListener("DOMContentLoaded",  function (){
         .then(response => response.json())
         .catch(error => console.log(error));
     }
-}
-/*  async function getComent(){
+
+  async function getComent(){
     const listComents = document.querySelector("#listComents");
     let url = "http://localhost/web2/flyshoes.com/TPEWebII/api/opinion";
     let r = await fetch (url);
@@ -43,4 +48,4 @@ document.addEventListener("DOMContentLoaded",  function (){
             '<li class="list-group-item">' + comentarios.comentario + '</li>';
         }
     }
-*/
+    */
