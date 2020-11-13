@@ -11,7 +11,7 @@
     function render(comentarios){
         const listComents = document.querySelector("#listComents");
         for(let coment of comentarios){
-            listComents.innerHTML += `<li class="list-group-item">${coment.comentario} -Nota ${coment.nota}</li>`;
+            listComents.innerHTML += `<li class="list-group-item">${coment.comentario} - Nota - ${coment.nota}</li>`;
         }
     }
     getComent();
