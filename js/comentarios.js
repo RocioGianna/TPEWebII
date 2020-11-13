@@ -1,24 +1,21 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded",  function (){
     function getComent(){
-    fetch("api/comentarios")
+    fetch('api/comentarios')
         .then(response => response.json())
-        .then(comentarios => console.log(comentarios))
-        .then(error => console.log(error));
+        .then(comentarios => render(comentarios))
+        .catch(error => console.log(error));
     }
-
-    getComent();
 
 
     function render(comentarios){
         const listComents = document.querySelector("#listComents");
         for(let coment of comentarios){
-            listComents.innerHTML += 
-            '<li class="list-group-item">${coment.comentario}</li>';
+            listComents.innerHTML += `<li class="list-group-item">${coment.comentario} -Nota ${coment.nota}</li>`;
         }
     }
-
+    getComent();
+/*
     function addComent(){
         const item = {
             coment:"",
@@ -32,7 +29,6 @@ document.addEventListener("DOMContentLoaded",  function (){
         .then(response => response.json())
         .catch(error => console.log(error));
     }
-}
 /*  async function getComent(){
     const listComents = document.querySelector("#listComents");
     let url = "http://localhost/web2/flyshoes.com/TPEWebII/api/opinion";
@@ -44,3 +40,4 @@ document.addEventListener("DOMContentLoaded",  function (){
         }
     }
 */
+

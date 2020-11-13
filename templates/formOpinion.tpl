@@ -49,8 +49,7 @@
             </form>
         </div>
         <div class="col-2">
-            <h4>Notar</h4>
-            <label for="exampleFormControlSelect1">Ingresar una nota al producto</label>
+            <h4>Puntaje</h4>
             <select class="form-control">
                 <option>1</option>
                 <option>2</option>
@@ -60,5 +59,5 @@
             </select>
         </div>
     </div>
-    <script src="js/opinion.js"></script>
+    <script src="js/comentarios.js"></script>
     {include file="footer.tpl"}
