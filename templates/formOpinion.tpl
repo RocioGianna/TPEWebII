@@ -29,20 +29,15 @@
         </table>
     </div>
     <div class="row justify-content-center">
-        <div class="col-3">
+        <div class="col-6">
             <h4>Comentarios del producto</h4>
             <ul class="list-group" id="listComents">
-
-            </ul>
-        </div>
-        <div class="col-3">
-            <h4>Nota del producto</h4>
-            <ul class="list-group" id="listNotas">
-
             </ul>
         </div>
         <div class="col-2">
             <h4>Nota del producto</h4>
+            <ul class="list-group" id="listNotas">
+            </ul>
         </div>
         
     </div>
