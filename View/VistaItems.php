@@ -45,9 +45,15 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('error', $error);
             $smarty->display('templates/error.tpl');
         }
-        function showFormBusqueda($productos){
+        //busqueda
+        function showFormBusqueda($productos, $totalTalles, $promedio, $min, $medio, $maximo){
             $smarty = new Smarty;
             $smarty->assign('marcas', $productos);
+            $smarty->assign('talles', $totalTalles);
+            $smarty->assign('prom', $promedio);
+            $smarty->assign('min', $min);
+            $smarty->assign('medio', $medio);
+            $smarty->assign('max', $maximo);
             $smarty->display('templates/formBusqueda.tpl');
         }
         function showCoincidencias($productos){

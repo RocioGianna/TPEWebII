@@ -94,16 +94,39 @@
         }
         //Busqueda avanzada
         function formBusqueda(){
-            $productos = $this->modelM->GetMarcas();
-            $this->vista->showFormBusqueda($productos);
+            $productos = $this->modelM->GetMarcas(); //marcas
+            $talles = $this->model->getTalles();//talles
+            $prom = $this->model->promedioPrecio();//promedio
+            $promedio = $prom->promedio/100;
+            $promedio = (int)$promedio;//promedio entero
+            $promedio = $promedio * 100;
+            $max = $this->model->searchMax();//maximo
+            $maximo = (int)$max->maximo;//maximo entero
+            $min = (int)($promedio * 0.50); //minimo entero
+            $medio = (int)($promedio * 1.25); //medio entero
+            for( $i =0; $i < count( $talles); $i++ ){
+                $talle = (array)$talles[$i];//pase los objetos a arreglos para luego pasarlos a enteros porque me salia un error
+                $talle = (int)$talle['talles'];
+                $totalTalles[$i] = $talle;
+            }
+            $this->vista->showFormBusqueda($productos, $totalTalles,$promedio, $min, $medio, $maximo);
         }
         function busqueda(){
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            if(!empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['marca_input'])){
-                if ($nombre == 100){
-                    $productos = $this->model->getProductoMarcas($talle, $precio);
+            if($precio == ""){
+                $max = $this->model->searchMax(); 
+                $precio = (int)$max->maximo;
+            }
+            if($talle == ""){
+                if ($nombre == ""){
+                    $productos = $this->model->getProductoSoloPrecio($precio);
+                }else{
+                    $productos = $this->model->getProductoSinTalle($precio, $nombre);
+                }
+            }else if ($nombre == ""){
+                    $productos = $this->model->getProductoSinMarcas($talle, $precio);
                 }else{
                     $productos = $this->model->getProducto( $talle,$precio, $nombre);
                 }
@@ -113,11 +136,6 @@
                     $error = "No se encontraron zapatillas con esas condiciones";
                     $this->vista->showError($error);
                 }
-            }else{
-                $error = "Ha ocurrido un error";
-                $this->vista->showError($error);
-            }
-           
         }
     }
 ?>
