@@ -1,5 +1,5 @@
-{include file="userHeader.tpl"}
-    <div class="container">
+{include file="adminHeader.tpl"}
+<div class="container">
         <h1 class="justify-content-center">Información del producto </h1>
         <table class="table table-dark">
             <thead>
@@ -59,5 +59,5 @@
             </select>
         </div>
     </div>
-    <script src="js/userOpinion.js"></script>
+    <script src="js/adminOpinion.js"></script>
     {include file="footer.tpl"}
