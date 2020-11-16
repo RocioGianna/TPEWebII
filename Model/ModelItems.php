@@ -62,15 +62,40 @@
         
 
         //Busqueda avanzada 
-        function getProducto($talle, $precio, $nombre){
+        function getTalles(){ // trae los talles
+            $sentence = $this->db->prepare("SELECT DISTINCT talles FROM zapatillas ORDER BY talles ASC");
+            $sentence->execute();
+            return $sentence->fetchAll(PDO::FETCH_OBJ);
+        }
+        function promedioPrecio(){ //promedio de la columna precios
+            $sentence = $this->db->prepare("SELECT AVG (precio) AS promedio FROM zapatillas");
+            $sentence->execute();
+            return $sentence->fetch(PDO::FETCH_OBJ);
+        }
+        function searchMax(){ // trae el precio maximo
+            $sentence = $this->db->prepare("SELECT MAX(precio) AS maximo FROM zapatillas");
+            $sentence->execute();
+            return $sentence->fetch(PDO::FETCH_OBJ);
+        }
+        function getProducto($talle, $precio, $nombre){ //filtro con los tres atributos
             $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE (talles = ? AND precio <= ?) AND stock > 0 AND marcas.id_marca=? ORDER BY precio ASC");
             $sentence->execute(array( $talle, $precio, $nombre));
-            return $sentence->fetchAll( PDO::FETCH_OBJ );
+            return $sentence->fetchAll(PDO::FETCH_OBJ );
         }
-        function getProductoMarcas($talle, $precio){
+        function getProductoSinMarcas($talle, $precio){// filtro sin marca
             $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE (talles = ? AND precio <= ?) AND stock > 0 ORDER BY precio ASC");
             $sentence->execute(array( $talle, $precio));
             return $sentence->fetchAll( PDO::FETCH_OBJ );
+        }
+        function getProductoSoloPrecio( $precio){ //filtro solo de precio
+            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE  precio <= ? AND stock > 0 ORDER BY marcas.nombre ASC");
+            $sentence->execute(array($precio));
+            return $sentence->fetchAll( PDO::FETCH_OBJ );
+        }
+        function getProductoSinTalle( $precio, $nombre){ //filtro precio y marca
+            $sentence = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca WHERE precio <= ? AND stock > 0 AND marcas.id_marca=? ORDER BY precio ASC");
+            $sentence->execute(array( $precio, $nombre));
+            return $sentence->fetchAll(PDO::FETCH_OBJ );
         }
     }
 ?>
