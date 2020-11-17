@@ -20,14 +20,12 @@ document.addEventListener("DOMContentLoaded",
                 btnDelete[i].addEventListener("click", 
                 function deleteComent(){
                     const id = document.getElementById("id_producto").textContent;
-                    fetch("api/deleteCom/" + id, {
-                        method: "delete",
-                        headers: {"Content-type": "application/json"},
-                        body: getComents()
+                    fetch('api/deleteComentario/' + id, {
+                    "method": "DELETE",
                     })
                     
                 });
-            } 
+            }
         }
     }
     let btnAddCom = document.querySelector("#btnAddCom");
@@ -48,3 +46,4 @@ document.addEventListener("DOMContentLoaded",
         .then(response => response.json())
         .catch(error => console.log(error));
     });
+

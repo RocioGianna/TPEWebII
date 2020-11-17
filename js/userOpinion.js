@@ -1,15 +1,14 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded",  function (){
+document.addEventListener("DOMContentLoaded", 
     function getComents(){
     const id = document.getElementById("id_producto").textContent;
     fetch('api/comentario/' + id)
         .then(response => response.json())
         .then((comentarios) => renderComs(comentarios))
         .catch(error => console.log(error));
-    }
+    });
     function renderComs(comentarios){
-        const id = document.getElementById("id_producto").textContent;
         const listComents = document.querySelector("#listComents");
         const listNotas = document.querySelector("#listNotas");
         for(let coment of comentarios){
@@ -19,21 +18,15 @@ document.addEventListener("DOMContentLoaded",  function (){
             for(let i = 0; i < btnDelete.length;i++){
                 btnDelete[i].addEventListener("click", 
                 function deleteComent(){
-                    fetch("api/deleteCom/" + id, {
-                        method: "delete",
-                        headers: {"Content-type": "application/json"},
+                    const id = document.getElementById("id_producto").textContent;
+                    fetch('api/deleteComentario/' + id, {
+                    "method": "DELETE",
                     })
-                    .then(response => response.json())
-                    .then((comentarios) => renderComs(comentarios))
-                    .catch(error => console.log(error));
                     
                 });
-            } 
+            }
         }
-    };
-    getComents();    
-    
-
+    }
     let btnAddCom = document.querySelector("#btnAddCom");
     btnAddCom.addEventListener("click", 
     function addComent(){
@@ -52,7 +45,8 @@ document.addEventListener("DOMContentLoaded",  function (){
         .then(response => response.json())
         .catch(error => console.log(error));
     });
-});     
+
+
 
     
 
