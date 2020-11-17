@@ -1,6 +1,8 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded",  function (){
+    getComents(); 
+    getPromedio();
     function getComents(){
     const id = document.getElementById("id_producto").textContent;
     fetch('api/comentario/' + id)
@@ -15,6 +17,10 @@ document.addEventListener("DOMContentLoaded",  function (){
             listComents.innerHTML += `<li class="list-group-item">${coment.comentario}
             <button type="submit" class="deleteCom">Borrar</button></li>`;
             listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
+            let totalNota = 0;
+            if(){
+                totalNota = totalNota + 1;
+            }
             let btnDelete = document.getElementsByClassName("deleteCom");
             for(let i = 0; i < btnDelete.length;i++){
                 btnDelete[i].addEventListener("click", 
@@ -30,7 +36,11 @@ document.addEventListener("DOMContentLoaded",  function (){
             } 
         }
     };
-    getComents();    
+    
+    function getPromedio(totalNota){
+        let showPromedio = document.querySelector("#showPromedio");
+
+    }
 
     let btnAddCom = document.querySelector("#btnAddCom");
     btnAddCom.addEventListener("click", 
