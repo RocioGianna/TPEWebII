@@ -1,15 +1,13 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded",  function (){
-    getComents(); 
-    getPromedio();
+document.addEventListener("DOMContentLoaded", 
     function getComents(){
     const id = document.getElementById("id_producto").textContent;
     fetch('api/comentario/' + id)
         .then(response => response.json())
         .then((comentarios) => renderComs(comentarios))
         .catch(error => console.log(error));
-    }
+    });
     function renderComs(comentarios){
         const listComents = document.querySelector("#listComents");
         const listNotas = document.querySelector("#listNotas");
@@ -17,10 +15,6 @@ document.addEventListener("DOMContentLoaded",  function (){
             listComents.innerHTML += `<li class="list-group-item">${coment.comentario}
             <button type="submit" class="deleteCom">Borrar</button></li>`;
             listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
-            let totalNota = 0;
-            if(){
-                totalNota = totalNota + 1;
-            }
             let btnDelete = document.getElementsByClassName("deleteCom");
             for(let i = 0; i < btnDelete.length;i++){
                 btnDelete[i].addEventListener("click", 
@@ -35,13 +29,7 @@ document.addEventListener("DOMContentLoaded",  function (){
                 });
             } 
         }
-    };
-    
-    function getPromedio(totalNota){
-        let showPromedio = document.querySelector("#showPromedio");
-
     }
-
     let btnAddCom = document.querySelector("#btnAddCom");
     btnAddCom.addEventListener("click", 
     function addComent(){
@@ -60,4 +48,3 @@ document.addEventListener("DOMContentLoaded",  function (){
         .then(response => response.json())
         .catch(error => console.log(error));
     });
-});   
