@@ -130,6 +130,9 @@ li{
 footer{
     margin-top: 0;
     background: linear-gradient(rgb(230, 230, 230), rgb(158, 158, 158));
+    margin-top: 50px;
+    padding-top: 20px;
+
 }
 
 footer .row{
@@ -152,6 +155,11 @@ footer .row a:hover{
 
 .foot-title{
     font-weight: bold;
+}
+
+footer{
+    margin-top: 50px;
+    padding-top: 20px;
 }
 
 /*FORMULARIO*/
@@ -304,6 +312,10 @@ main .btn-outline-success{
     padding: 0 10px;
 }
 
+.opinion{
+    margin-top: 50px;
+}
+
 @media only screen and (min-width:425px){
 
     aside{
@@ -395,6 +407,8 @@ main .btn-outline-success{
     .reparto{
         margin: 20px 50px;
     }
+
+    
 }
 
 @media only screen and (min-width:1024px){
@@ -512,6 +526,11 @@ main .btn-outline-success{
     
     .foot-title{
         font-weight: bold;
+    }
+
+    footer{
+        margin-top: 50px;
+        padding-top: 20px;
     }
     
     /*FORMULARIO*/

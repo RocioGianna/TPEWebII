@@ -41,7 +41,7 @@
                 </ul>
                 <div>
                      <div class="alert alert-success" role="alert">
-                        Conectado
+                        Usuario
                     </div>
                 </div>
             </div>

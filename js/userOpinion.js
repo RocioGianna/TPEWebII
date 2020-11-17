@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded",  function (){
         }
     };
     getComents();    
+    
 
     let btnAddCom = document.querySelector("#btnAddCom");
     btnAddCom.addEventListener("click", 

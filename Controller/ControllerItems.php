@@ -13,11 +13,11 @@
         private $user;
 
         function __construct(){
-             $this->vista = new VistaItems();
-             $this->model = new ModelItems();
-             $this->modelM = new ModelMarcas();
-             $this->helper = new Helper();
-             $this->user = new ControllerUsers();
+            $this->vista = new VistaItems();
+            $this->model = new ModelItems();
+            $this->modelM = new ModelMarcas();
+            $this->helper = new Helper();
+            $this->user = new ControllerUsers();
         }
 
         function ShowItems(){

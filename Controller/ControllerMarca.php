@@ -3,25 +3,33 @@
     require_once './Model/ModelMarca.php';
     require_once './Model/ModelItems.php';
     require_once './Controller/Helper.php';
+    require_once './Controller/ControllerUsers.php';
 
      class ControllerMarca{
          private $vista;
          private $model;
          private $modelI;
          private $helper;
+         private $user;
 
         function __construct(){
             $this->vista = new VistaMarcas();
             $this->model = new ModelMarcas();
             $this->modelI = new ModelItems();
             $this->helper = new Helper();
+            $this->user = new ControllerUsers();
         }
 
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
             $usuarioLogueado = $this->helper->checkLoggedIn();
+            $admin = $this->user->userTipe();
             if($usuarioLogueado){
-                $this->vista->renderMarcasLogged($marcas);
+                if($admin){
+                    $this->vista->adminRenderMarcas($marcas);
+                } else {
+                    $this->vista->renderMarcasLogged($marcas);
+                }
             } else {
                 $this->vista->renderMarcas($marcas);
             }

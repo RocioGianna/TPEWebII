@@ -14,17 +14,23 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('items', $item);
             $smarty->display('templates/gruposMarcas.tpl'); 
         }
-        function renderMarcas($marcas){
+        function adminRenderMarcas($marcas){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/userMarcas.tpl'); 
+            $smarty->display('templates/adminMarcas.tpl'); 
         }
         function renderMarcasLogged($marcas){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('marcas', $marcas);
             $smarty->display('templates/loggedMarcas.tpl'); 
+        }
+        function renderMarcas($marcas){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->titulo);
+            $smarty->assign('marcas', $marcas);
+            $smarty->display('templates/userMarcas.tpl'); 
         }
         function ShowFormEditMarca($marcas){
             $smarty = new Smarty();

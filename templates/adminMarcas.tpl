@@ -1,4 +1,4 @@
-{include file="loggedHeader.tpl"}
+{include file="adminHeader.tpl"}
     <div class="container">
         <h1 class="row justify-content-center">Marcas de {$titulo}</h1>
         <table class="table table-dark">

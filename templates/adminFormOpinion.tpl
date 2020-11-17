@@ -1,6 +1,6 @@
 {include file="adminHeader.tpl"}
 <div class="container">
-        <h1 class="justify-content-center">Información del producto </h1>
+        <h1 class="row justify-content-center">Información del producto </h1>
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -28,7 +28,7 @@
             </tbody>
         </table>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center opinion">
         <div class="col-6">
             <h4>Comentarios del producto</h4>
             <ul class="list-group" id="listComents">

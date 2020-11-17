@@ -2,7 +2,8 @@
 
 document.addEventListener("DOMContentLoaded",  function (){
     function getComents(){
-    fetch('api/comentario/10')
+    const id = document.getElementById("id_producto").textContent;
+    fetch('api/comentario/' + id)
         .then(response => response.json())
         .then((comentarios) => renderComs(comentarios))
         .catch(error => console.log(error));
@@ -18,7 +19,8 @@ document.addEventListener("DOMContentLoaded",  function (){
             for(let i = 0; i < btnDelete.length;i++){
                 btnDelete[i].addEventListener("click", 
                 function deleteComent(){
-                    fetch("api/deleteCom/62", {
+                    const id = document.getElementById("id_producto").textContent;
+                    fetch("api/deleteCom/" + id, {
                         method: "delete",
                         headers: {"Content-type": "application/json"},
                         body: getComents()
@@ -33,13 +35,14 @@ document.addEventListener("DOMContentLoaded",  function (){
     let btnAddCom = document.querySelector("#btnAddCom");
     btnAddCom.addEventListener("click", 
     function addComent(){
+        const id = document.getElementById("id_producto").textContent;
         let comentario = document.querySelector("#comentario").value;
         let nota = document.querySelector("#notaItem").value;
         let opinion = {
             "comentario":comentario,
             "nota": nota
         };
-        fetch("api/comentar/10", {
+        fetch("api/comentar/" + id, {
             method: "post",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(opinion)

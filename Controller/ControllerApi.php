@@ -6,10 +6,10 @@ require_once './Controller/Helper.php';
     class ControllerApi extends ControllerApiAbstract{
 
         function __construct(){
-             parent::__construct();
-             $this->vista = new VistaApi();
-             $this->model = new ModelItems();
-             $this->helper = new Helper();
+            parent::__construct();
+            $this->vista = new VistaApi();
+            $this->model = new ModelItems();
+            $this->helper = new Helper();
         }
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
