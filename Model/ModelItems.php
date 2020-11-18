@@ -40,7 +40,7 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         function getComentarioProducto($id){
-            $sentencia = $this->db->prepare("SELECT comentario, nota FROM opiniones JOIN zapatillas ON opiniones.id_producto = zapatillas.id_zapatilla WHERE zapatillas.id_zapatilla = ?");
+            $sentencia = $this->db->prepare("SELECT comentario, nota, id_comentario FROM opiniones JOIN zapatillas ON opiniones.id_producto = zapatillas.id_zapatilla WHERE zapatillas.id_zapatilla = ?");
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }

@@ -13,17 +13,20 @@ document.addEventListener("DOMContentLoaded",
         const listNotas = document.querySelector("#listNotas");
         for(let coment of comentarios){
             listComents.innerHTML += `<li class="list-group-item">${coment.comentario}
-            <button type="submit" class="deleteCom">Borrar</button></li>`;
-            listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
+            
+            <button type="submit" class="deleteCom">Borrar</button>
+            <p class="idCom" style="display:none"> ${coment.id_comentario}</p>
+            </li>`;
+            listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`
             let btnDelete = document.getElementsByClassName("deleteCom");
             for(let i = 0; i < btnDelete.length;i++){
                 btnDelete[i].addEventListener("click", 
                 function deleteComent(){
-                    const id = document.getElementById("id_producto").textContent;
-                    fetch('api/deleteComentario/' + id, {
-                    "method": "DELETE",
+                    let idCom = this.nextElementSibling.innerHTML;
+                    fetch('api/deleteCom/' + idCom, {
+                        "method": "DELETE",
+                        "headers":{"Content-Type": "application/json"},
                     })
-                    
                 });
             }
         }
@@ -43,7 +46,9 @@ document.addEventListener("DOMContentLoaded",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(opinion)
         })
-        .then(response => response.json())
+        //.then(response => response.json())
         .catch(error => console.log(error));
     });
+
+
 
