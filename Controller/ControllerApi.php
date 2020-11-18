@@ -17,6 +17,8 @@ require_once 'Controller/ControllerUsers.php';
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
             $admin = $this->user->userTipe();
+            /*var_dump($admin);
+            die;*/
             $conectado = $this->helper->checkLoggedIn();
             $this->vista->ShowFormComent($item, $admin, $conectado);
         }

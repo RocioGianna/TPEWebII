@@ -29,7 +29,6 @@
             </tbody>
         </table>
     </div>
-{if $logged}
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentarios del producto</h4>
@@ -42,10 +41,11 @@
             </ul>
         </div>
     </div>
+{if $logged}
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentar</h4>
-            <form resource="" method="">
+            <form id="formComent" resource="comentar" method="post">
                 <textarea class="form-control" aria-label="With textarea" id="comentario"></textarea>
                 <button class="btn btn-primary" id="btnAddCom">Agregar</button>
             </form>
@@ -62,5 +62,5 @@
         </div>
     </div>
 {/if}
-    <script src="js/adminOpinion.js"></script>
+    <script src="js/opiniones.js"></script>
     {include file="footer.tpl"}
