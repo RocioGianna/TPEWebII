@@ -32,19 +32,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
             listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
             let btnDelete = document.getElementsByClassName("btnDelete");
             for(let i = 0; i < btnDelete.length;i++){
-                btnDelete[i].addEventListener("click",deleteComent); 
-            }
-        }
-    }
-    function deleteComent(){
-                    let idCom = this.nextElementSibling.innerHTML;
+                btnDelete[i].addEventListener("click", deleteComent=>{
+                   const idCom = document.querySelector(".idCom").textContent;
                     console.log(idCom);
                     fetch('api/deleteCom/' + idCom, {
                         "method": "DELETE",
                     })
-                    .then(response =>response.json())
-                    .then(comentarios => getComents())
+                    .then(response => getComents())
                     .catch(error => console.log(error));
+                }); 
+            }
+        }
     }
     function addComent(){
         const id = document.getElementById("id_producto").textContent;
