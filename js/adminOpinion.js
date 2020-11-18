@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded",
                         "method": "DELETE",
                         "headers":{"Content-Type": "application/json"},
                     })
+                    .then(response => response.json())
+                    .then(comentarios => getComents())
+                    .catch(error => console.log(error));
                 });
             }
         }
@@ -35,18 +38,17 @@ document.addEventListener("DOMContentLoaded",
     btnAddCom.addEventListener("click", 
     function addComent(){
         const id = document.getElementById("id_producto").textContent;
-        let comentario = document.querySelector("#comentario").value;
-        let nota = document.querySelector("#notaItem").value;
         let opinion = {
-            "comentario":comentario,
-            "nota": nota
+            "comentario":document.querySelector("#comentario").value,
+            "nota": document.querySelector("#notaItem").value
         };
         fetch("api/comentar/" + id, {
             method: "post",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(opinion)
         })
-        //.then(response => response.json())
+        .then(response => response.json())
+        .then(comentarios => getComents())
         .catch(error => console.log(error));
     });
 

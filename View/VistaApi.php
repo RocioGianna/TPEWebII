@@ -28,7 +28,7 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('logged', $conectado);
             $smarty->display('templates/formOpinion.tpl'); 
         }
-      /*  function adminFormComent($item){
+        /*function adminFormComent($item){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
