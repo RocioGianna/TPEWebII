@@ -42,6 +42,7 @@
         </div>
     </div>
 {if $logged}
+    <div style="display:none"  id="tipo_usuario">{$admin}</div>
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentar</h4>
