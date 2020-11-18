@@ -15,6 +15,7 @@
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
                 <td><button type="submit" class="btn btn-light"><a href="detalleProducto/{$i->id_zapatilla}">+ info</a></button></td>
+                <td><button type="submit" class="btn btn-light"><a href="api/opinion/{$i->id_zapatilla}">ver comentarios</a></button></td>
             </tr>
             {/foreach}
             </tbody>

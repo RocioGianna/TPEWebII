@@ -13,8 +13,5 @@ $r->addRoute("deleteCom/:ID", "DELETE", "ControllerApi", "deleteComent"); //borr
 $r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent"); //trae un comentario especifico
 $r->addRoute("comentarios", "GET", "ControllerApi", "getComents"); //trae todos los comentarios
 
-/*$r->addRoute("comentar/:ID", "GET", "ControllerApi", "getFormComent");
-$r->addRoute("notar/:ID", "GET", "ControllerApi", "getFormNote");*/
-
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
 

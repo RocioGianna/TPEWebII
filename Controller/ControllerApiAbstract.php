@@ -5,6 +5,8 @@ abstract class ControllerApiAbstract {
     protected $model;
     protected $view;
     private $data;
+    private $user;
+    private $helper;
     
     public function __construct() {
         $this->view = new VistaApi();

@@ -32,19 +32,21 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentarios del producto</h4>
-            <ul class="list-group" id="listComents">
+            <ul class="list-group list-group-flush" id="listComents">
             </ul>
         </div>
         <div class="col-2">
             <h4>Nota del producto</h4>
-            <ul class="list-group" id="listNotas">
+            <ul class="list-group list-group-flush" id="listNotas">
             </ul>
         </div>
     </div>
+{if $logged}
+    <div style="display:none"  id="tipo_usuario">{$admin}</div>
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentar</h4>
-            <form resource="" method="">
+            <form id="formComent" resource="comentar" method="post">
                 <textarea class="form-control" aria-label="With textarea" id="comentario"></textarea>
                 <button class="btn btn-primary" id="btnAddCom">Agregar</button>
             </form>
@@ -60,5 +62,6 @@
             </select>
         </div>
     </div>
-    <script src="js/userOpinion.js"></script>
+{/if}
+    <script src="js/opiniones.js"></script>
     {include file="footer.tpl"}

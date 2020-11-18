@@ -32,12 +32,12 @@
     <div class="row justify-content-center opinion">
         <div class="col-6">
             <h4>Comentarios del producto</h4>
-            <ul class="list-group" id="listComents">
+            <ul class="list-group list-group-flush" id="listComents">
             </ul>
         </div>
         <div class="col-2">
             <h4>Nota del producto</h4>
-            <ul class="list-group" id="listNotas">
+            <ul class="list-group list-group-flush" id="listNotas">
             </ul>
         </div>
     </div>
