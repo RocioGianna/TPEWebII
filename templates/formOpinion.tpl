@@ -23,6 +23,7 @@
                 {else}
                 <td>Disponible</td>
                 {/if}
+                <td style="display:none"  id="id_producto">{$i->id_zapatilla}<td>
             </tr>
               {/foreach}
             </tbody>
