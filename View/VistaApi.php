@@ -20,12 +20,12 @@ require_once "./libs/smarty/Smarty.class.php";
             );      
             return (isset($status[$code]))? $status[$code] : $status[500];    
         }        
-        function ShowFormComent($item, $admin, $conectado){
+        function ShowFormComent($item, $admin){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
             $smarty->assign('admin', $admin);
-            $smarty->assign('logged', $conectado);
+            //$smarty->assign('logged', $conectado);
             $smarty->display('templates/formOpinion.tpl'); 
         }
         /*function adminFormComent($item){

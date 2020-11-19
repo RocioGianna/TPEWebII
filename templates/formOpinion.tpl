@@ -41,7 +41,6 @@
             </ul>
         </div>
     </div>
-{if $logged}
     <div style="display:none"  id="tipo_usuario">{$admin}</div>
     <div class="row justify-content-center">
         <div class="col-6">
@@ -62,6 +61,5 @@
             </select>
         </div>
     </div>
-{/if}
     <script src="js/opiniones.js"></script>
     {include file="footer.tpl"}

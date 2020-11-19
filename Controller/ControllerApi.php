@@ -16,11 +16,17 @@ require_once 'Controller/ControllerUsers.php';
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
-            $admin = $this->user->userTipe();
+            //$admin = $this->user->userTipe();
+            //$conectado = $this->helper->checkLoggedIn();
+            $usuarioLogueado = $this->helper->checkLoggedIn();
+            if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
+                $admin = 1;
+            }else{
+                $admin = 0;
+            }
             /*var_dump($admin);
             die;*/
-            $conectado = $this->helper->checkLoggedIn();
-            $this->vista->ShowFormComent($item, $admin, $conectado);
+            $this->vista->ShowFormComent($item, $admin);
         }
         public function getComentProducto($params = null){
             $id = $params[':ID'];

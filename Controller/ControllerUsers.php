@@ -42,7 +42,6 @@
             $rol = 0;
             $this->model->editPermiso($rol, $id);
             $this->usersTable();
-            
         }
         function darPermisos($params = null){
             $id = $params[':ID'];
