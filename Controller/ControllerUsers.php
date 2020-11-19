@@ -106,9 +106,9 @@
         }
         function userTipe(){
             if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
-                return true;
+                return 1;
             }else{
-                return false;
+                return 0;
             }
         }
     }

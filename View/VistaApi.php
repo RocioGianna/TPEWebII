@@ -19,19 +19,13 @@ require_once "./libs/smarty/Smarty.class.php";
                 500 => "Internal Server Error"     
             );      
             return (isset($status[$code]))? $status[$code] : $status[500];    
-        }        
-        function ShowFormComent($item, $admin){
+        }
+        function ShowFormComent($item, $admin, $usuarioLogueado){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
             $smarty->assign('admin', $admin);
-            //$smarty->assign('logged', $conectado);
+            $smarty->assign('log', $usuarioLogueado);
             $smarty->display('templates/formOpinion.tpl'); 
         }
-        /*function adminFormComent($item){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->assign('item', $item);
-            $smarty->display('templates/adminFormOpinion.tpl'); 
-        }*/
     }

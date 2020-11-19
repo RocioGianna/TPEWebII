@@ -34,11 +34,6 @@
             return $sentencia->fetchAll( PDO::FETCH_OBJ );
         }
         //model para comentarios
-        function getComentarios(){
-            $sentencia = $this->db->prepare("SELECT * FROM opiniones");
-            $sentencia->execute();
-            return $sentencia->fetchAll(PDO::FETCH_OBJ);
-        }
         function getComentarioProducto($id){
             $sentencia = $this->db->prepare("SELECT comentario, nota, id_comentario FROM opiniones JOIN zapatillas ON opiniones.id_producto = zapatillas.id_zapatilla WHERE zapatillas.id_zapatilla = ?");
             $sentencia->execute(array($id));
@@ -59,8 +54,6 @@
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
-        
-
         //Busqueda avanzada 
         function getTalles(){ // trae los talles
             $sentence = $this->db->prepare("SELECT DISTINCT talles FROM zapatillas ORDER BY talles ASC");

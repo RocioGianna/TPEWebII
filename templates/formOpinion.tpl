@@ -42,6 +42,7 @@
         </div>
     </div>
     <div style="display:none"  id="tipo_usuario">{$admin}</div>
+{if $log}
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentar</h4>
@@ -61,5 +62,6 @@
             </select>
         </div>
     </div>
+{/if}
     <script src="js/opiniones.js"></script>
     {include file="footer.tpl"}

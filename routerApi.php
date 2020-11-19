@@ -7,11 +7,10 @@ $r = new Router();
 $r->addRoute("opinion/:ID", "GET", "ControllerApi", "getFormOpinion"); //trae el formulario con el producto
 
 $r->addRoute("comentario/:ID", "GET", "ControllerApi", "getComentProducto");//trae los comentarios de un producto
-$r->addRoute("comentar/:ID", "POST", "ControllerApi", "addComent"); //se puede comentar
-$r->addRoute("deleteCom/:ID", "DELETE", "ControllerApi", "deleteComent"); //borra un comentario
-
+$r->addRoute("comentar/:ID", "POST", "ControllerApi", "addComent"); 
+$r->addRoute("deleteCom/:ID", "DELETE", "ControllerApi", "deleteComent"); 
 $r->addRoute("coment/:ID", "GET", "ControllerApi", "getComent"); //trae un comentario especifico
-$r->addRoute("comentarios", "GET", "ControllerApi", "getComents"); //trae todos los comentarios
+
 
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
 

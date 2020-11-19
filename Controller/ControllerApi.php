@@ -16,17 +16,9 @@ require_once 'Controller/ControllerUsers.php';
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
-            //$admin = $this->user->userTipe();
-            //$conectado = $this->helper->checkLoggedIn();
             $usuarioLogueado = $this->helper->checkLoggedIn();
-            if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
-                $admin = 1;
-            }else{
-                $admin = 0;
-            }
-            /*var_dump($admin);
-            die;*/
-            $this->vista->ShowFormComent($item, $admin);
+            $admin = $this->user->userTipe();
+            $this->vista->ShowFormComent($item, $admin, $usuarioLogueado);
         }
         public function getComentProducto($params = null){
             $id = $params[':ID'];
@@ -55,17 +47,10 @@ require_once 'Controller/ControllerUsers.php';
                 $this->vista->response("El comentario no existe", 404);
             }
         }
-        function getComents(){
-            $comentarios = $this->model->getComentarios();
-            $this->vista->response($comentarios, 200);
-        }
         function getComent($params = null){
             $id = $params[':ID'];
             $comentarios = $this->model->getComentario($id);
             $this->vista->response($comentarios, 200);
         }
-        
-        
-        
     }
 
