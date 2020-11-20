@@ -7,31 +7,22 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function DetalleProduct($item){
+        function DetalleProduct($item, $admin, $usuario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
             $smarty->display('templates/detallesProduct.tpl'); 
         }
-        function ShowItems($items){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->assign('items', $items);
-            $smarty->display('templates/userProducts.tpl'); 
-        }
-        function ShowItemsLogged($items, $marcas){
+        function ShowProducts($items, $marcas, $admin, $usuario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('items', $items);
             $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/loggedProducts.tpl'); 
-        }
-        function ShowItemsAdmin($items, $marcas){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->assign('items', $items);
-            $smarty->assign('marcas', $marcas);
-            $smarty->display('templates/adminProductos.tpl'); 
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
+            $smarty->display('templates/productos.tpl'); 
         }
         function ShowFormEdit($item, $marcas){
             $smarty = new Smarty();
@@ -46,7 +37,7 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->display('templates/error.tpl');
         }
         //busqueda
-        function showFormBusqueda($productos, $totalTalles, $promedio, $min, $medio, $maximo){
+        function showFormBusqueda($productos, $totalTalles, $promedio, $min, $medio, $maximo, $admin, $usuario){
             $smarty = new Smarty;
             $smarty->assign('marcas', $productos);
             $smarty->assign('talles', $totalTalles);
@@ -54,10 +45,14 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('min', $min);
             $smarty->assign('medio', $medio);
             $smarty->assign('max', $maximo);
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
             $smarty->display('templates/formBusqueda.tpl');
         }
-        function showCoincidencias($productos){
+        function showCoincidencias($productos, $admin, $usuario){
             $smarty = new Smarty;
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
             $smarty->assign('items', $productos);
             $smarty->display('templates/productosBusqueda.tpl');
         }

@@ -9,6 +9,7 @@
         private $model;
         private $helper;
         private $view;
+        private $user;
 
         function __construct(){
             $this->vista = new VistaUser();
@@ -18,14 +19,9 @@
             
         }
         function Home(){
-            $usuarioLogueado = $this->helper->checkLoggedIn();
-            if($usuarioLogueado && $_SESSION["rol"] == 0){
-                $this->vista->HomeLogged();
-            } else if($usuarioLogueado && $_SESSION["rol"] == 1){
-                $this->vista->AdminHome();
-            } else{
-                $this->vista->Home();
-            }
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->userTipe();
+            $this->vista->home($admin, $usuario);
         }
         function usersTable(){
             $users = $this->model->GetUsers();

@@ -1,4 +1,10 @@
+{if $usuario eq '1' and $admin eq '1'}
 {include file="adminHeader.tpl"}
+{elseif $usuario eq '1' and $admin eq '0'}
+{include file="loggedHeader.tpl"}
+{else}
+{include file="userHeader.tpl"}
+{/if}
     <div class="container">
         <h1 class="row justify-content-center">Marcas de {$titulo}</h1>
         <table class="table table-dark">

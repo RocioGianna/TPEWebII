@@ -1,5 +1,11 @@
+{if $usuario eq '1' and $admin eq '1'}
+{include file="adminHeader.tpl"}
+{elseif $usuario eq '1' and $admin eq '0'}
 {include file="loggedHeader.tpl"}
-    <main class="container" id="productos">
+{else}
+{include file="userHeader.tpl"}
+{/if}
+ <main class="container" id="productos">
         <div class="row">
             <article class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <h3>Nike Air</h3>

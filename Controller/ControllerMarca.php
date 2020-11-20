@@ -22,17 +22,9 @@
 
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
-            $usuarioLogueado = $this->helper->checkLoggedIn();
+            $usuario = $this->helper->checkLoggedIn();
             $admin = $this->user->userTipe();
-            if($usuarioLogueado){
-                if($admin){
-                    $this->vista->adminRenderMarcas($marcas);
-                } else {
-                    $this->vista->renderMarcasLogged($marcas);
-                }
-            } else {
-                $this->vista->renderMarcas($marcas);
-            }
+            $this->vista->marcas($marcas, $admin, $usuario);
         }
         function InsertMarca(){
             $nombre = $_POST['nombre_input'];

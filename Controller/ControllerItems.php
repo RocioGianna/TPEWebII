@@ -23,17 +23,9 @@
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
-            $usuarioLogueado = $this->helper->checkLoggedIn();
-            $Admin = $this->user->userTipe();
-            if($usuarioLogueado){
-                if($Admin){
-                    $this->vista->ShowItemsAdmin($items, $marcas);
-                }else{
-                    $this->vista->ShowItemsLogged($items, $marcas);
-                }
-            }else{
-                $this->vista->ShowItems($items);
-            }
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->user->userTipe();
+            $this->vista->ShowProducts($items, $marcas, $admin, $usuario);
         }
         function Insert(){
             $modelo = $_POST['modelo_input'];
@@ -41,11 +33,23 @@
             $precio = $_POST['precio_input'];
             $stock = $_POST['stock_input'];
             $marca = $_POST['marca_input'];
+            //$img = $_FILES['img_input'];
             if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
-                $this->model->InsertItems($modelo, $talle, $precio, $stock, $marca);
-                $items = $this->model->GetItems();
-                $marcas = $this->modelM->GetMarcas();
-                $this->vista->ShowItemsLogged($items, $marcas);
+                if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
+                    $imgTmp = $_FILES['img_input']['tmp_name'];
+                    $imgSave = 'image/' . $_FILES['img_input']['name'];
+                    move_uploaded_file($imgTmp, $imgSave);
+                    $this->model->InsertItemsWithImg($modelo, $talle, $precio, $stock, $marca, $imgSave);
+                    $items = $this->model->GetItems();
+                    $marcas = $this->modelM->GetMarcas();
+                    $this->vista->ShowItemsLogged($items, $marcas);
+                } else {
+                    $this->model->InsertItems($modelo, $talle, $precio, $stock, $marca);
+                    $items = $this->model->GetItems();
+                    $marcas = $this->modelM->GetMarcas();
+                    $this->vista->ShowItemsLogged($items, $marcas);
+                }
+                    
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
@@ -63,9 +67,11 @@
         }
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->user->userTipe();
             if(isset($id_zapatilla)){
                 $item = $this->model->GetInfo($id_zapatilla);
-                $this->vista->DetalleProduct($item);
+                $this->vista->DetalleProduct($item, $usuario, $admin);
             }else{
                 $error = "El Id no existe";
                 $this->vista->showError($error);
@@ -94,6 +100,8 @@
         }
         //Busqueda avanzada
         function formBusqueda(){
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->user->userTipe();
             $productos = $this->modelM->GetMarcas(); //marcas
             $talles = $this->model->getTalles();//talles
             $prom = $this->model->promedioPrecio();//promedio
@@ -109,9 +117,11 @@
                 $talle = (int)$talle['talles'];
                 $totalTalles[$i] = $talle;
             }
-            $this->vista->showFormBusqueda($productos, $totalTalles,$promedio, $min, $medio, $maximo);
+            $this->vista->showFormBusqueda($productos, $totalTalles,$promedio, $min, $medio, $maximo, $admin, $usuario);
         }
         function busqueda(){
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->user->userTipe();
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
@@ -131,7 +141,7 @@
                     $productos = $this->model->getProducto( $talle,$precio, $nombre);
                 }
                 if($productos){
-                    $this->vista->showCoincidencias($productos);
+                    $this->vista->showCoincidencias($productos, $admin, $usuario);
                 }else{
                     $error = "No se encontraron zapatillas con esas condiciones";
                     $this->vista->showError($error);

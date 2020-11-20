@@ -15,6 +15,10 @@
             $sentencia = $this->db->prepare("INSERT INTO zapatillas ( modelo, talles, precio, stock, id_marca) VALUES (?,?,?,?,?)");
             $sentencia->execute(array($modelo, $talle, $precio, $stock, $marca));
         }
+        function InsertItemsWithImg($modelo, $talle, $precio, $stock, $marca, $imgSave){
+            $sentencia = $this->db->prepare("INSERT INTO zapatillas ( modelo, talles, precio, stock, id_marca, imagen) VALUES (?,?,?,?,?,?)");
+            $sentencia->execute(array($modelo, $talle, $precio, $stock, $marca, $imgSave));
+        }
         function BorrarItem($id_zapatilla){
             $sentencia = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");
             $sentencia->execute(array($id_zapatilla));

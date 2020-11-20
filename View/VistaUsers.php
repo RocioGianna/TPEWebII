@@ -8,20 +8,12 @@ require_once "./libs/smarty/Smarty.class.php";
         function __construct(){
             $this->titulo = "FlyShoes";
         }
-        function Home(){
+        function home($admin, $usuario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/userHome.tpl'); 
-        }
-        function HomeLogged(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/loggedHome.tpl'); 
-        }
-        function AdminHome(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo', $this->titulo);
-            $smarty->display('templates/adminHome.tpl');
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
+            $smarty->display('templates/home.tpl'); 
         }
         function showTable($users){
             $smarty = new Smarty();

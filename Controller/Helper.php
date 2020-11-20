@@ -4,9 +4,9 @@ class Helper{
      public function checkLoggedIn(){
         session_start();
         if(!isset($_SESSION["email"])){
-            return false;
+            return 0;
         }else{
-            return true;
+            return 1;
         }
     }
 }

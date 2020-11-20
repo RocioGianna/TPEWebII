@@ -1,4 +1,10 @@
- {include file="loggedHeader.tpl"}
+{if $usuario eq '1' and $admin eq '1'}
+{include file="adminHeader.tpl"}
+{elseif $usuario eq '1' and $admin eq '0'}
+{include file="loggedHeader.tpl"}
+{else}
+{include file="userHeader.tpl"}
+{/if}
     <div class="container">
         <h1 class="justify-content-center">Productos disponibles</h1>
         <button type="submit" class="btn btn-light"><a href="formFiltro/">Busqueda Avanzada</a></button>
@@ -14,10 +20,10 @@
             <tbody>
             {foreach from= $items item=i }
             <tr scope="row">
-               <td> {$i->nombre} </td>
-               <td>  {$i->modelo}</td>
-               <td>  {$i->talles}</td>
-               <td>  {$i->precio}</td>
+               <td>{$i->nombre} </td>
+               <td>{$i->modelo}</td>
+               <td>{$i->talles}</td>
+               <td>{$i->precio}</td>
             </tr>
             {/foreach}
             </tbody>
