@@ -18,6 +18,7 @@
     $r->addRoute("showEditForm/:ID", "GET", "ControllerItems", "ShowEditForm");
     $r->addRoute("editItem/:ID", "POST", "ControllerItems", "Edit");
     $r->addRoute("eliminar/:ID", "GET", "ControllerItems", "Borrar");
+
     //opcional filtro de productos 
     $r->addRoute("formFiltro", "GET", "ControllerItems", "formBusqueda");
     $r->addRoute("busqueda", "POST", "ControllerItems", "busqueda");
@@ -35,7 +36,7 @@
     $r->addRoute("deleteUser/:ID", "GET", "ControllerUsers", "deleteUser");
     $r->addRoute("quitarPermiso/:ID", "GET", "ControllerUsers", "quitarPermisos");
     $r->addRoute("darPermiso/:ID", "GET", "ControllerUsers", "darPermisos");
-    
+
     //Rutas login 
     $r->addRoute("newuser", "GET", "ControllerUsers", "NewUser");
     $r->addRoute("insertnewuser", "POST", "ControllerUsers", "InsertNewUser");

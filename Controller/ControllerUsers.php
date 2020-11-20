@@ -21,6 +21,8 @@
         function Home(){
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->userTipe();
+            /*var_dump($usuario, $admin);
+            die;*/
             $this->vista->home($admin, $usuario);
         }
         function usersTable(){

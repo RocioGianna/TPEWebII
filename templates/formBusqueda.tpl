@@ -1,9 +1,7 @@
-{if $usuario eq '1' and $admin eq '1'}
+{if $usuario and $admin eq '1'}
 {include file="adminHeader.tpl"}
-{elseif $usuario eq '1' and $admin eq '0'}
+{elseif $usuario  and $admin eq '0'}
 {include file="loggedHeader.tpl"}
-{else}
-{include file="userHeader.tpl"}
 {/if}
 <div class="container">
     <div class="row justify-content-center">
