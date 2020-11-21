@@ -1,7 +1,6 @@
 <?php
     require_once './View/VistaUsers.php';
     require_once './Model/ModelUsers.php';
-    require_once './Controller/Helper.php';
     require_once './View/VistaItems.php';
 
     class ControllerUsers{
@@ -14,15 +13,12 @@
         function __construct(){
             $this->vista = new VistaUser();
             $this->model = new ModelUsers();
-            $this->helper = new Helper();
             $this->view = new VistaItems();
             
         }
         function Home(){
-            $usuario = $this->helper->checkLoggedIn();
+            $usuario = $this->checkLoggedIn();
             $admin = $this->userTipe();
-            /*var_dump($usuario, $admin);
-            die;*/
             $this->vista->home($admin, $usuario);
         }
         function usersTable(){
@@ -102,6 +98,15 @@
                 }
             }
         }
+        //chequea si hay un usuario legeado
+        public function checkLoggedIn(){
+            if(!isset($_SESSION["email"])){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        //Tipo de usuario logeado
         function userTipe(){
             if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
                 return 1;

@@ -49,7 +49,7 @@
                     $marcas = $this->modelM->GetMarcas();
                     $this->vista->ShowItemsLogged($items, $marcas);
                 }
-                    
+
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
