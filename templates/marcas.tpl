@@ -1,6 +1,6 @@
-{if $usuario eq '1' and $admin eq '1'}
+{if $usuario and $admin eq '1'}
 {include file="adminHeader.tpl"}
-{elseif $usuario eq '1' and $admin eq '0'}
+{else if $usuario and $admin eq '0'}
 {include file="loggedHeader.tpl"}
 {else}
 {include file="userHeader.tpl"}
@@ -25,7 +25,7 @@
             <td>{$i->nombre}</td> 
             <td>{$i->origen}</td>
             <td><a href="detallesMarca/{$i->id_marca}"><button type="submit" class="btn btn-light">+ info</button></a></td>
-            {if $usuario eq '1' and $admin eq '1'}
+            {if $usuario}
             <td><a href="ShowFormEditMarca/{$i->id_marca}"><button type="submit" class="btn btn-warning">editar</button></a></td>
             <td><a href="borrar/{$i->id_marca}"><button type="submit" class="btn btn-danger">Eliminar</button></a></td>
             {/if}
@@ -34,5 +34,7 @@
             </tbody>
         </table>
     </div>
+{if $usuario}
     {include file="insertMarca.tpl"}
+{/if}
     {include file="footer.tpl"}

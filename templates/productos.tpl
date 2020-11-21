@@ -27,7 +27,7 @@
             <tbody>
             {foreach from= $items item=i }
             <tr scope="row">
-                <td><img src="{$i->imagen}" alt="" width="150px" height="110px"></td>
+               
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
                 <td><a href="detalleProducto/{$i->id_zapatilla}"><button type="submit" class="btn btn-light">+ info</button></a></td>
@@ -41,7 +41,7 @@
             </tbody>
         </table>
     </div>
-    {if $usuario and $admin eq '1'}
+    {if $usuario}
     {include file="insertItem.tpl"}
     {/if}
     {include file="footer.tpl"}

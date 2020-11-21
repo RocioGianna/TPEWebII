@@ -64,7 +64,7 @@
                 $_SESSION["email"] = $user;
                 $_SESSION["pass"] = $hash;
                 $_SESSION["rol"] = $tipo;
-                $this->vista->Home();
+                $this->Home();
             }else{
                 $error = "No puede dejar un campo incompleto, vuelva a intentarlo";
                 $this->view->showError($error);
