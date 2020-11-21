@@ -32,7 +32,7 @@
             if(!empty($_POST['nombre_input']) && !empty($_POST['origen_input'])){
                 $this->model->InsertMarca($_POST['nombre_input'],$_POST['origen_input']);
                 $marcas = $this->model->GetMarcas();
-                $this->vista->renderMarcasLogged($marcas);
+                $this->ShowMarcas();
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);

@@ -40,14 +40,10 @@
                     $imgSave = 'image/' . $_FILES['img_input']['name'];
                     move_uploaded_file($imgTmp, $imgSave);
                     $this->model->InsertItemsWithImg($modelo, $talle, $precio, $stock, $marca, $imgSave);
-                    $items = $this->model->GetItems();
-                    $marcas = $this->modelM->GetMarcas();
-                    $this->vista->ShowItemsLogged($items, $marcas);
+                    $this->ShowItems();
                 } else {
                     $this->model->InsertItems($modelo, $talle, $precio, $stock, $marca);
-                    $items = $this->model->GetItems();
-                    $marcas = $this->modelM->GetMarcas();
-                    $this->vista->ShowItemsLogged($items, $marcas);
+                    $this->ShowItems();
                 }
 
             }else{
@@ -105,12 +101,14 @@
             $productos = $this->modelM->GetMarcas(); //marcas
             $talles = $this->model->getTalles();//talles
             $prom = $this->model->promedioPrecio();//promedio
+            //hacer el promedio numero entero
             $promedio = $prom->promedio/100;
-            $promedio = (int)$promedio;//promedio entero
+            $promedio = (int)$promedio;
             $promedio = $promedio * 100;
-            $max = $this->model->searchMax();//maximo
-            $maximo = (int)$max->maximo;//maximo entero
-            $min = (int)($promedio * 0.50); //minimo entero
+            //busco el maximo y luego saco porcentajes de rango
+            $max = $this->model->searchMax();
+            $maximo = (int)$max->maximo;//maximo 
+            $min = (int)($promedio * 0.50); //minimo 
             $medio = (int)($promedio * 1.25); //medio entero
             for( $i =0; $i < count( $talles); $i++ ){
                 $talle = (array)$talles[$i];//pase los objetos a arreglos para luego pasarlos a enteros porque me salia un error
