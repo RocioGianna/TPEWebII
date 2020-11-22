@@ -21,13 +21,17 @@
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                     {/if}
-                    <th scope="col">Deja tu opinion</th>
+                    <th scope="col">Opinion</th>
                 </tr>
             </thead>
             <tbody>
             {foreach from= $items item=i }
             <tr scope="row">
-               <td><img src="{$i->imagen}" alt="" width="150px" height="110px"></td>
+                {if isset($i->imagen)}
+                <td><img src="{$i->imagen}" alt="" width="150px" height="110px"></td>
+                {else}
+                <td width="150px" height="110px"></td>
+                {/if}
                 <td>{$i->nombre}</td>
                 <td>{$i->modelo}</td>
                 <td><a href="detalleProducto/{$i->id_zapatilla}"><button type="submit" class="btn btn-light">+ info</button></a></td>
@@ -35,7 +39,7 @@
                 <td><a href="showEditForm/{$i->id_zapatilla}"><button type="submit" class="btn btn-warning">Editar</button></a></td>
                 <td><a href="./eliminar/{$i->id_zapatilla}"><button type="submit" class="btn btn-danger">Eliminar</button></a></td>
                 {/if}
-                <td><a href="api/opinion/{$i->id_zapatilla}"><button type="submit" class="btn btn-light">Opinar</button></a></td>
+                <td><a href="api/opinion/{$i->id_zapatilla}"><button type="submit" class="btn btn-light">Comentarios</button></a></td>
             </tr>
             {/foreach}
             </tbody>

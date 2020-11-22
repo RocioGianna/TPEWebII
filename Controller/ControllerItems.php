@@ -33,19 +33,19 @@
             $precio = $_POST['precio_input'];
             $stock = $_POST['stock_input'];
             $marca = $_POST['marca_input'];
-            //$img = $_FILES['img_input'];
             if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
-                if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
-                    $imgTmp = $_FILES['img_input']['tmp_name'];
-                    $imgSave = 'image/' . $_FILES['img_input']['name'];
-                    move_uploaded_file($imgTmp, $imgSave);
-                    $this->model->InsertItemsWithImg($modelo, $talle, $precio, $stock, $marca, $imgSave);
-                    $this->ShowItems();
+                if(isset($_FILES['img_input']['type'])){
+                    if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
+                        $imgTmp = $_FILES['img_input']['tmp_name'];
+                        $imgSave = 'image/' . $_FILES['img_input']['name'];
+                        move_uploaded_file($imgTmp, $imgSave);
+                        $this->model->InsertItemsWithImg($modelo, $talle, $precio, $stock, $marca, $imgSave);
+                        $this->ShowItems();
+                    }
                 } else {
                     $this->model->InsertItems($modelo, $talle, $precio, $stock, $marca);
                     $this->ShowItems();
                 }
-
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
