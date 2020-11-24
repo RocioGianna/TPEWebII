@@ -2,7 +2,6 @@
 require_once './Model/ModelItems.php';
 require_once 'ControllerApiAbstract.php';
 require_once './Controller/Helper.php';
-require_once 'Controller/ControllerUsers.php';
 
     class ControllerApi extends ControllerApiAbstract{
 
@@ -10,14 +9,13 @@ require_once 'Controller/ControllerUsers.php';
             parent::__construct();
             $this->vista = new VistaApi();
             $this->model = new ModelItems();
-            $this->user = new ControllerUsers();
             $this->helper = new Helper();
         }
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
             $usuarioLogueado = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             $this->vista->ShowFormComent($item, $admin, $usuarioLogueado);
         }
         public function getComentProducto($params = null){

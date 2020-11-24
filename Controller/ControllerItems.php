@@ -10,21 +10,19 @@
         private $model;
         private $modelM;
         private $helper;
-        private $user;
 
         function __construct(){
             $this->vista = new VistaItems();
             $this->model = new ModelItems();
             $this->modelM = new ModelMarcas();
             $this->helper = new Helper();
-            $this->user = new ControllerUsers();
         }
 
         function ShowItems(){
             $items = $this->model->GetItems();
             $marcas = $this->modelM->GetMarcas();
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             $this->vista->ShowProducts($items, $marcas, $admin, $usuario);
         }
         function Insert(){
@@ -64,7 +62,7 @@
         function DetalleProducto($params = null){
             $id_zapatilla = $params[':ID'];
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             if(isset($id_zapatilla)){
                 $item = $this->model->GetInfo($id_zapatilla);
                 $this->vista->DetalleProduct($item, $usuario, $admin);
@@ -97,7 +95,7 @@
         //Busqueda avanzada
         function formBusqueda(){
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             $productos = $this->modelM->GetMarcas(); //marcas
             $talles = $this->model->getTalles();//talles
             $prom = $this->model->promedioPrecio();//promedio
@@ -119,7 +117,7 @@
         }
         function busqueda(){
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];

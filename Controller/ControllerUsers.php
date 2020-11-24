@@ -9,7 +9,6 @@
         private $model;
         private $helper;
         private $view;
-        private $user;
 
         function __construct(){
             $this->vista = new VistaUser();
@@ -19,7 +18,7 @@
         }
         function Home(){
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->userTipe();
+            $admin = $this->helper->userTipe();
             $this->vista->home($admin, $usuario);
         }
         function usersTable(){
@@ -57,7 +56,6 @@
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $this->model->InsertUser($user, $hash, $tipo);
                 //logueo al usuario que recien creo su cuenta
-                session_start();
                 $_SESSION["email"] = $user;
                 $_SESSION["pass"] = $hash;
                 $_SESSION["rol"] = $tipo;
@@ -67,7 +65,7 @@
                 $this->view->showError($error);
             }
         }
-        //loged in loged out
+        //Form para logearse y funcion logout
         function Login($params = null){
             $this->vista->ShowLogin();
         }
@@ -76,7 +74,7 @@
             session_destroy();
             header("Location: ".LOGIN);
         }
-        //funcion para verificar usuario
+        //funcion para verificar usuario logeado
         function VerifyUser(){
             $user = $_POST["user_input"];
             $password = $_POST["pass_input"];
@@ -97,14 +95,6 @@
                 }else{
                     $this->vista->ShowLogin("El usuario no existe");
                 }
-            }
-        }
-        //Tipo de usuario logeado
-        function userTipe(){
-            if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
-                return 1;
-            }else{
-                return 0;
             }
         }
     }

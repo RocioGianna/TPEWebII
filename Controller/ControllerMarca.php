@@ -3,7 +3,6 @@
     require_once './Model/ModelMarca.php';
     require_once './Model/ModelItems.php';
     require_once './Controller/Helper.php';
-    require_once './Controller/ControllerUsers.php';
 
      class ControllerMarca{
          private $vista;
@@ -17,13 +16,12 @@
             $this->model = new ModelMarcas();
             $this->modelI = new ModelItems();
             $this->helper = new Helper();
-            $this->user = new ControllerUsers();
         }
 
         function ShowMarcas(){
             $marcas = $this->model->GetMarcas();
             $usuario = $this->helper->checkLoggedIn();
-            $admin = $this->user->userTipe();
+            $admin = $this->helper->userTipe();
             $this->vista->marcas($marcas, $admin, $usuario);
         }
         function InsertMarca(){

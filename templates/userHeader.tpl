@@ -33,10 +33,7 @@
                         <a href="newuser" class="nav-link suscribir">Suscribir</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login" class="nav-link">login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="logout" class="nav-link">log out</a>
+                        <a href="login" class="nav-link">Login</a>
                     </li>
                 </ul>
             </div>
