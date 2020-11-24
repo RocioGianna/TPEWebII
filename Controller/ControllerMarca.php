@@ -58,8 +58,7 @@
             $id_marca = $params[":ID"];
             if(!empty($_POST['nombre_input']) && !empty($_POST['origen_input'])){
                 $this->model->EditMarca($nombre, $origen, $id_marca);
-                $marcas = $this->model->GetMarcas();
-                $this->vista->renderMarcasLogged($marcas);
+                $this->ShowMarcas();
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
