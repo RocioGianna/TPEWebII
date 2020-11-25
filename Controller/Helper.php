@@ -5,6 +5,12 @@ class Helper{
             session_start();
         }
     }
+    //Cierra sesion
+    function LogOut(){
+        session_start();
+        session_destroy();
+        header("Location: ".LOGIN);
+    }
     public function checkLoggedIn(){
         if(!isset($_SESSION["email"])){
             return false;

@@ -14,7 +14,7 @@
                     {foreach from=$marcas item=i}
                         <option  value="{$i->id_marca}">{$i->nombre}</option>
                     {/foreach}
-                </select>
+            </select>
                 <label>Seleccione su talle</label>
                 <div class="form-group">
                  <div class="form-check form-check-inline">

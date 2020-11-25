@@ -2,6 +2,7 @@
     require_once 'Controller/ControllerItems.php';
     require_once 'Controller/ControllerMarca.php';
     require_once 'Controller/ControllerUsers.php';
+    require_once 'Controller/Helper.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -42,7 +43,7 @@
     $r->addRoute("insertnewuser", "POST", "ControllerUsers", "InsertNewUser");
     $r->addRoute("login", "GET", "ControllerUsers", "Login");
     $r->addRoute("verifyUser", "POST", "ControllerUsers", "VerifyUser");
-    $r->addRoute("logout", "GET", "ControllerUsers", "LogOut");
+    $r->addRoute("logout", "GET", "Helper", "LogOut");
     
     //ruta por defecto
     $r->setDefaultRoute("ControllerUsers", "Home");

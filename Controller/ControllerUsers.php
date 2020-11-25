@@ -42,12 +42,16 @@
             $rol = 1;
             $this->model->editPermiso($rol, $id);
             $this->usersTable();
-            
         }
         //nuevo usuario
         function NewUser(){
             $this->vista->ShowFormNewUser();
         }
+        //Form para logearse 
+        function Login($params = null){
+            $this->vista->ShowLogin();
+        }
+        //inserta y loguea nuevo usuario
         function InsertNewUser(){
             $user = $_POST["user_input"];
             $password = $_POST["pass_input"];
@@ -64,15 +68,6 @@
                 $error = "No puede dejar un campo incompleto, vuelva a intentarlo";
                 $this->view->showError($error);
             }
-        }
-        //Form para logearse y funcion logout
-        function Login($params = null){
-            $this->vista->ShowLogin();
-        }
-        function LogOut(){
-            session_start();
-            session_destroy();
-            header("Location: ".LOGIN);
         }
         //funcion para verificar usuario logeado
         function VerifyUser(){

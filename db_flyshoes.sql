@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2020 a las 03:44:16
+-- Tiempo de generación: 24-11-2020 a las 17:05:42
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -63,13 +63,53 @@ CREATE TABLE `opiniones` (
 --
 
 INSERT INTO `opiniones` (`id_comentario`, `id_producto`, `comentario`, `nota`) VALUES
-(2, 11, 'FUNCIONA X 2', 2),
 (3, 15, 'asd', 5),
 (4, 13, 'asdasda', 2),
-(5, 11, 'Excelente!', 5),
-(6, 17, 'Muy malo', 1),
-(7, 11, 'Excelente!', 5),
-(8, 17, 'Muy malo', 1);
+(8, 17, 'Muy malo', 1),
+(9, 15, 'ESTE COMENTARIO ES POR POSTMAN', 5),
+(14, 17, 'ESTE COMENTARIO ES POR POSTMANnnnnnnnnnnn', 5),
+(15, 17, 'AHORA SI ANDA', 5),
+(16, 17, 'AHORA SI ANDA x2', 5),
+(19, 39, 'Muy bueno', 5),
+(20, 39, 'Excerlente', 2),
+(21, 15, ',uy bueno', 3),
+(22, 15, ',uy bueno', 3),
+(23, 15, 'no anda\n', 1),
+(24, 43, 'A ver si anda', 1),
+(25, 43, 'Por ahora si', 3),
+(26, 43, 'ANDA JOYAAAAAAA', 5),
+(27, 43, 'a ver ahora', 1),
+(28, 43, 'no\n', 1),
+(29, 43, 'ahora si :D', 4),
+(30, 43, 'hola', 4),
+(31, 36, 'QUE BUENA ONDA', 5),
+(35, 13, 'bueno', 5),
+(42, 38, 'Muy bueno', 1),
+(43, 38, 'buenisimo', 4),
+(44, 38, 'prueba', 1),
+(46, 39, 'No me gusto', 1),
+(48, 39, 'hgdfhg', 1),
+(50, 40, 'probando js', 1),
+(51, 40, 'asd', 1),
+(52, 40, 'sadd', 3),
+(53, 40, 'sadd', 3),
+(54, 40, 'asdff', 4),
+(55, 40, 'asdff', 4),
+(56, 40, 'q', 1),
+(57, 35, 'probando', 1),
+(58, 42, 'aca nda', 4),
+(59, 42, ' comentario de prueba', 1),
+(60, 42, ' comentario de prueba', 1),
+(61, 42, 'probando que no se repita comentario', 5),
+(62, 42, 'probando que no se repita comentario', 5),
+(63, 42, 'joya', 4),
+(70, 5, 'asdsdd', 1),
+(72, 45, 'muy lindo', 1),
+(83, 41, 'comentario 4', 1),
+(84, 11, 'prueba 1', 1),
+(87, 11, 'comentario como usuario registrado', 4),
+(90, 18, 'muy buena!', 5),
+(92, 11, 'Muy bueno!', 1);
 
 -- --------------------------------------------------------
 
@@ -90,9 +130,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `email`, `password`, `rol`) VALUES
 (4, 'rocio', '$2y$10$VDdLFpYid7E6jgnELZ2biOPi8EHibyuEfSVg11c7N.I9MXsRurkwa', 1),
-(6, 'Elpepe', '$2y$10$OeCp9uqcd.PQ9dNPQf7J9u0byYwctwwcwikUU0LsYzET4tjrjRp9.', 0),
-(16, 'prueba', '$2y$10$KfVBYB8bLs3kIVIu6.Omf.0TfCgPNyS3kDbu9pXzQJNmYSAqgNGLm', 0),
-(17, 'prueba2', '$2y$10$j3KoYeeZWJXk2U2u0aKwSeNhmmfsmes76LuLZYFgpKYt4tJOhyaea', 0);
+(18, 'test', '$2y$10$2Vd3FWUE/gn6FkcZnPg/PexvLjbu/4BOLQsf6YjEoWHHBJx83wKZm', 0),
+(26, 'agustin', '$2y$10$7FAQvl/NrU3RQwWOxwuObugLK50CPlE6uIOXDPebKhwEUyQFDIW9e', 0),
+(27, 'probando', '$2y$10$vo6s703EmDiDPuJMaBBTweOyhdbDjO8b9c0o8e9mZPTtvt0tkmNnO', 0),
+(28, 'test2', '$2y$10$myCGMkRIz/Ij0GnUpp0Fn.f3wyjp7fxp9rPbVmcVbzv3sclgUTFRC', 0),
+(29, 'asd', '$2y$10$Pk/BEG7OeLxY2i1/om8qRuAOnYFcvqSgvBKXbCRHFm4yc/qf10yZu', 0),
+(30, 'asdq', '$2y$10$7fiLS9N.yr88gUPNBbytz.EjLwJySlC6iE8XsZtDtu7u06yg0e3.6', 0);
 
 -- --------------------------------------------------------
 
@@ -103,28 +146,47 @@ INSERT INTO `usuarios` (`id`, `email`, `password`, `rol`) VALUES
 CREATE TABLE `zapatillas` (
   `id_zapatilla` int(11) NOT NULL,
   `modelo` varchar(50) NOT NULL,
-  `talles` varchar(50) NOT NULL,
+  `talles` double NOT NULL,
   `precio` float NOT NULL,
   `stock` tinyint(1) NOT NULL,
-  `id_marca` int(11) NOT NULL
+  `id_marca` int(11) NOT NULL,
+  `imagen` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `zapatillas`
 --
 
-INSERT INTO `zapatillas` (`id_zapatilla`, `modelo`, `talles`, `precio`, `stock`, `id_marca`) VALUES
-(5, 'Retro', '43', 8000, 1, 2),
-(10, 'Classic', '45', 9000, 0, 3),
-(11, 'Air Max', '41 - 42 - 43', 6000, 0, 1),
-(12, 'React', '41 - 42 - 43', 5500, 1, 1),
-(13, 'Sass', '41 - 42 - 43', 4500, 1, 2),
-(15, 'Boostrap', '41 - 42 - 43', 6500, 0, 3),
-(16, 'Segundapruebasd', '', 5500, 0, 1),
-(17, 'CSS', '41', 6000, 0, 3),
-(18, 'JavaScript', '42 - 43 - 44', 9000, 0, 3),
-(19, 'PHP', '42 - 43 - 44', 7500, 0, 1),
-(20, 'VSC', '41 - 42 - 43', 5500, 0, 2);
+INSERT INTO `zapatillas` (`id_zapatilla`, `modelo`, `talles`, `precio`, `stock`, `id_marca`, `imagen`) VALUES
+(5, 'Retro', 43, 8000, 1, 2, NULL),
+(10, 'Classic', 37, 9000, 0, 3, NULL),
+(11, 'Air Max', 41, 6000, 10, 1, NULL),
+(12, 'React', 42, 5500, 1, 1, NULL),
+(13, 'Sass', 41, 4500, 1, 2, NULL),
+(15, 'Boostrap', 41, 6500, 0, 3, NULL),
+(17, 'CSS', 41, 6000, 0, 3, NULL),
+(18, 'JavaScript', 42, 9000, 3, 3, NULL),
+(19, 'PHP', 42, 7500, 0, 1, NULL),
+(20, 'VSC', 41, 5500, 12, 2, NULL),
+(33, 'Running', 38, 7000, 20, 4, NULL),
+(34, 'Sport', 37, 5000, 10, 15, NULL),
+(35, 'flyshoes', 32, 2500, 8, 15, NULL),
+(36, 'de prueba', 39, 3800, 70, 15, NULL),
+(37, 'Retro', 40, 1200, 5, 2, NULL),
+(38, 'Running', 38, 4500, 10, 1, NULL),
+(39, 'Air force', 40, 3040, 2, 1, NULL),
+(40, 'Blazer', 40, 4368, 10, 1, NULL),
+(41, 'Daybreak', 38, 7459, 1, 1, NULL),
+(42, 'Sunsset', 39, 3099, 10, 15, NULL),
+(43, 'Royal', 38, 8452, 5, 3, NULL),
+(44, 'PRUEBA DE PRECIO', 40, 12565, 12, 13, NULL),
+(45, 'PRUEBA DE PROMEDIO', 32, 1000, 3, 3, NULL),
+(46, 'prueba de talle', 35, 2500, 1, 13, NULL),
+(50, 'preba imagen', 43, 1, 1, 3, 'image/117362.jpg'),
+(58, 'ahora si', 38, 1, 1, 1, NULL),
+(59, 'qweqwe', 40, 0, 1, 1, NULL),
+(61, 'retro', 43, 8000, 0, 1, NULL),
+(62, 'retro', 43, 8000, 0, 1, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -164,25 +226,25 @@ ALTER TABLE `zapatillas`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `opiniones`
 --
 ALTER TABLE `opiniones`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `zapatillas`
 --
 ALTER TABLE `zapatillas`
-  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Restricciones para tablas volcadas
