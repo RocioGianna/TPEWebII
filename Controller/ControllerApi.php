@@ -7,17 +7,18 @@ require_once './Controller/Helper.php';
 
         function __construct(){
             parent::__construct();
-            $this->vista = new VistaApi();
             $this->model = new ModelItems();
             $this->helper = new Helper();
         }
         public function getFormOpinion($params = null){ 
             $id_zapatilla = $params[':ID'];
             $item = $this->model->GetInfo($id_zapatilla);
+            //busca si hay un usuario logueado en caso que si, busca que tipo de usuario es
             $usuarioLogueado = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
             $this->vista->ShowFormComent($item, $admin, $usuarioLogueado);
         }
+        //busca los comentarios de una producto
         public function getComentProducto($params = null){
             $id = $params[':ID'];
             $comentarios = $this->model->getComentarioProducto($id);
@@ -45,6 +46,7 @@ require_once './Controller/Helper.php';
                 $this->vista->response("El comentario no existe", 404);
             }
         }
+        //busca un comentario por su id
         function getComent($params = null){
             $id = $params[':ID'];
             $comentarios = $this->model->getComentario($id);

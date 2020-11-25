@@ -3,13 +3,13 @@ require_once './View/VistaApi.php';
 
 abstract class ControllerApiAbstract {
     protected $model;
-    protected $view;
+    protected $vista;
     private $data;
     private $user;
     private $helper;
     
     public function __construct() {
-        $this->view = new VistaApi();
+        $this->vista = new VistaApi();
         $this->data = file_get_contents("php://input");
     }
 
