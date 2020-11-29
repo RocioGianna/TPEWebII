@@ -58,6 +58,17 @@
             $sentencia->execute(array($id));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
+        //Paginacion
+       /* function contadorProductos(){
+            $sentencia = $this->db->prepare("SELECT COUNT(*) as contador FROM zapatillas");
+            $sentencia->execute();
+            return $sentencia->fetch(PDO::FETCH_OBJ);
+        }*/
+        function itemsPagina($offset, $nroItems){
+            $sentencia = $this->db->prepare("SELECT * FROM zapatillas LIMIT $offset, $nroItems");
+            $sentencia->execute(array($offset, $nroItems));
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        }
         //Busqueda avanzada 
         function getTalles(){ // trae los talles
             $sentence = $this->db->prepare("SELECT DISTINCT talles FROM zapatillas ORDER BY talles ASC");

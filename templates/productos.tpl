@@ -44,6 +44,15 @@
             {/foreach}
             </tbody>
         </table>
+        <nav>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="pagina/#">9</a></li>
+    
+        <li class="page-item"><a class="page-link" href="pagina/#">1</a></li>
+ 
+    <li class="page-item"><a class="page-link" href="pagina/#">10</a></li>
+  </ul>
+</nav>
     </div>
     {if $usuario}
     {include file="insertItem.tpl"}

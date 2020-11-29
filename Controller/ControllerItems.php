@@ -92,6 +92,25 @@
                 $this->vista->showError($error);
             }
         }
+        //Opcional paginacion 
+        function paginacion($params = null){
+            if (isset($params[":ID"])) {
+                $numero = $params[":ID"];
+            } else {
+                $numero = 1;
+            }
+            $nroItems = 6;
+            $offset = ($numero-1) * $nroItems;
+            $pagina = $this->model->itemsPagina($offset, $nroItems);
+            var_dump($pagina);
+            die;
+          /*  $productosTotal = $this->model->contadorProductos();
+            $productosEntero = (int)$productosTotal->contador;
+            $totalPaginas = $productosEntero / $nroItems;*/
+           /* var_dump($pagina);
+            die;*/
+           // $this->vista->showProductos($totalPaginas, $pagina);
+        }
         //Busqueda avanzada
         function formBusqueda(){
             $usuario = $this->helper->checkLoggedIn();

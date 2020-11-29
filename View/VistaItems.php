@@ -36,6 +36,13 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('error', $error);
             $smarty->display('templates/error.tpl');
         }
+        //paginacion
+      /*  function showProductos($totalPaginas,$pagina){
+            $smarty = new Smarty;
+            $smarty->assign('pag', $pagina);
+          //  $smarty->assign('paginas', $totalPaginas);
+            $smarty->display('templates/paginacion.tpl');
+        }*/
         //busqueda
         function showFormBusqueda($productos, $totalTalles, $promedio, $min, $medio, $maximo, $admin, $usuario){
             $smarty = new Smarty;
