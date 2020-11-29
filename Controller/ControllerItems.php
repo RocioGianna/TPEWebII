@@ -18,21 +18,34 @@
             $this->helper = new Helper();
         }
 
-        function ShowItems($params = null){
-            if (isset($params[":ID"])) {
-                $numero = $params[":ID"];
-            } else {
-                $numero = 1;
-            }
+        function ShowItems(){
+            $numero = 1;
+            $offset = 0;
             $nroItems = 6;
-            $offset = ($numero-1) * $nroItems;
+            $marcas = $this->modelM->GetMarcas();
             $pagina = $this->model->itemsPagina($offset, $nroItems);
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
             $productosTotal = $this->model->contadorProductos();
             $productosEntero = $productosTotal->contador;
-            $totalPaginas = round($productosEntero / $nroItems, 0, PHP_ROUND_HALF_UP);
-            $this->vista->ShowProducts($pagina, $numero, $totalPaginas, $admin, $usuario);
+            $totalPaginas = ceil($productosEntero / $nroItems);
+            $this->vista->ShowProducts($marcas,$pagina, $numero, $totalPaginas, $admin, $usuario);
+        }
+        //Opcional paginacion 
+        function paginacion($params = null){
+            if (isset($params[":ID"])) {
+                $numero = $params[":ID"];
+                $nroItems = 6;
+                $offset = ($numero-1) * $nroItems;
+                $marcas = $this->modelM->GetMarcas();
+                $pagina = $this->model->itemsPagina($offset, $nroItems);
+                $usuario = $this->helper->checkLoggedIn();
+                $admin = $this->helper->userTipe();
+                $productosTotal = $this->model->contadorProductos();
+                $productosEntero = $productosTotal->contador;
+                $totalPaginas = ceil($productosEntero / $nroItems);
+                $this->vista->ShowProducts($marcas, $pagina, $numero, $totalPaginas, $admin, $usuario);
+            }
         }
         function Insert(){
             $modelo = $_POST['modelo_input'];
@@ -106,23 +119,6 @@
                 $this->vista->showError($error);
             }
         }
-        //Opcional paginacion 
-        /*function paginacion($params = null){
-            if (isset($params[":ID"])) {
-                $numero = $params[":ID"];
-            } else {
-                $numero = 1;
-            }
-            $nroItems = 6;
-            $offset = ($numero-1) * $nroItems;
-            $pagina = $this->model->itemsPagina($offset, $nroItems);
-            $this->vista->ShowProducts($items, $marcas, $admin, $usuario);*/
-            /*var_dump($pagina);
-            die;*/
-          /*  $productosTotal = $this->model->contadorProductos();
-            $productosEntero = (int)$productosTotal->contador;
-            $totalPaginas = $productosEntero / $nroItems;
-        }*/
         //Busqueda avanzada
         function formBusqueda(){
             $usuario = $this->helper->checkLoggedIn();

@@ -13,7 +13,7 @@
     //home 
     $r->addRoute("home", "GET", "ControllerUsers", "Home" );
     //ABM Productos (productos/zapatillas)
-    $r->addRoute("productos/:ID", "GET", "ControllerItems", "ShowItems");
+    $r->addRoute("productos", "GET", "ControllerItems", "ShowItems");
     $r->addRoute("detalleProducto/:ID", "GET", "ControllerItems", "DetalleProducto");
     $r->addRoute("insert", "POST", "ControllerItems", "Insert");
     $r->addRoute("showEditForm/:ID", "GET", "ControllerItems", "ShowEditForm");
@@ -25,7 +25,7 @@
     $r->addRoute("busqueda", "POST", "ControllerItems", "busqueda");
 
     //opcional paginacion
-    /*$r->addRoute("pagina/:ID", "GET", "ControllerItems", "paginacion");*/
+    $r->addRoute("productos/:ID", "GET", "ControllerItems", "paginacion");
 
     //ABM Categorias (categoria/marcas)
     $r->addRoute("marcas", "GET", "ControllerMarca", "ShowMarcas");

@@ -15,9 +15,10 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('usuario', $usuario);
             $smarty->display('templates/detallesProduct.tpl'); 
         }
-        function ShowProducts($pagina, $numero, $totalPaginas, $admin, $usuario){
+        function ShowProducts($marcas,$pagina, $numero, $totalPaginas, $admin, $usuario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
+            $smarty->assign('marcas', $marcas);
             $smarty->assign('items', $pagina);
             $smarty->assign('nro', $numero);
             $smarty->assign('totalpagina', $totalPaginas);

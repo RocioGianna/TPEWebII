@@ -55,6 +55,9 @@
     </li>
     {/if}
     {if $nro > 1}
+        {if $nro > 2}
+            <li class="page-item"><a class="page-link" href="productos/{$nro - 2}">{$nro - 2}</a></li>
+        {/if}
         <li class="page-item"><a class="page-link" href="productos/{$nro - 1}">{$nro - 1}</a></li>
     {/if}
     <li class="page-item active">
@@ -62,6 +65,9 @@
     </li>
     {if $nro < $totalpagina}
         <li class="page-item"><a class="page-link" href="productos/{$nro + 1}">{$nro + 1}</a></li>
+        {if $nro < $totalpagina - 1}
+            <li class="page-item"><a class="page-link" href="productos/{$nro + 2}">{$nro + 2}</a></li>
+        {/if}
     {/if}
     {if $nro != $totalpagina}
     <li class="page-item">
