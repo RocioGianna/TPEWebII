@@ -18,10 +18,15 @@
             $this->helper = new Helper();
         }
 
-        function ShowItems(){
-            $numero = 1;
-            $offset = 0;
+        function ShowItems($params = null){
             $nroItems = 6;
+            if (isset($params[":ID"])) {
+                $numero = $params[":ID"];
+                $offset = ($numero-1) * $nroItems;
+            }else{
+                $numero = 1;
+                $offset = 0;
+            }
             $marcas = $this->modelM->GetMarcas();
             $pagina = $this->model->itemsPagina($offset, $nroItems);
             $usuario = $this->helper->checkLoggedIn();
@@ -30,22 +35,6 @@
             $productosEntero = $productosTotal->contador;
             $totalPaginas = ceil($productosEntero / $nroItems);
             $this->vista->ShowProducts($marcas,$pagina, $numero, $totalPaginas, $admin, $usuario);
-        }
-        //Opcional paginacion 
-        function paginacion($params = null){
-            if (isset($params[":ID"])) {
-                $numero = $params[":ID"];
-                $nroItems = 6;
-                $offset = ($numero-1) * $nroItems;
-                $marcas = $this->modelM->GetMarcas();
-                $pagina = $this->model->itemsPagina($offset, $nroItems);
-                $usuario = $this->helper->checkLoggedIn();
-                $admin = $this->helper->userTipe();
-                $productosTotal = $this->model->contadorProductos();
-                $productosEntero = $productosTotal->contador;
-                $totalPaginas = ceil($productosEntero / $nroItems);
-                $this->vista->ShowProducts($marcas, $pagina, $numero, $totalPaginas, $admin, $usuario);
-            }
         }
         function Insert(){
             $modelo = $_POST['modelo_input'];
@@ -100,14 +89,6 @@
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
             $this->vista->ShowFormEdit($item, $marcas, $marcas, $usuario);
-            /*if(isset($id_item)){
-                $item = $this->model->GetItem($id_item);
-                $marcas = $this->modelM->GetMarcas();
-                $this->vista->ShowFormEdit($item, $marcas);
-            }else{
-                $error = "El Id no existe";
-                $this->vista->showError($error);
-            }*/
         }
         function Edit($params = null){
             $modelo = $_POST["modelo_input"];
