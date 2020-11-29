@@ -145,7 +145,7 @@
             $talle = $_POST["talle_input"];
             $precio = $_POST["precio_input"];
             $nombre = $_POST["marca_input"];
-            if($precio == ""){
+            if($precio == ""){ 
                 $max = $this->model->searchMax(); 
                 $precio = (int)$max->maximo;
             }

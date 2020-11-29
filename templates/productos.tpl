@@ -50,7 +50,6 @@
         <li class="page-item">
             <a class="page-link" href="productos/{$nro - 1}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
             </a>
         </li>
     {/if}
@@ -69,7 +68,7 @@
             <li class="page-item"><a class="page-link" href="productos/{$nro + 2}">{$nro + 2}</a></li>
         {/if}
     {/if}
-    {if $nro != $totalpagina}
+    {if $nro != $totalpagina} 
         <li class="page-item">
             <a class="page-link" href="productos/{$nro + 1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
