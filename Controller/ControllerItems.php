@@ -88,7 +88,7 @@
             $marcas = $this->modelM->GetMarcas();
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
-            $this->vista->ShowFormEdit($item, $marcas, $marcas, $usuario);
+            $this->vista->ShowFormEdit($item, $marcas, $admin, $usuario);
         }
         function Edit($params = null){
             $modelo = $_POST["modelo_input"];

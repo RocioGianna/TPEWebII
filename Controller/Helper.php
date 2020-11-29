@@ -21,9 +21,9 @@ class Helper{
     //Tipo de usuario logeado
     function userTipe(){
         if(isset($_SESSION["rol"]) && $_SESSION["rol"] == 1){
-            return 1;
+            return true;
         }else{
-            return 0;
+            return false;
         }
     }
 }

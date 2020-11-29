@@ -1,4 +1,10 @@
+{if $usuario and $admin}
+{include file="adminHeader.tpl"}
+{else if $usuario}
+{include file="loggedHeader.tpl"}
+{else}
 {include file="userHeader.tpl"}
+{/if}
     <div class="container">
         <h1 class="justify-content-center">Información del producto </h1>
         <table class="table table-dark">
@@ -42,7 +48,7 @@
         </div>
     </div>
     <div style="display:none"  id="tipo_usuario">{$admin}</div>
-{if $log}
+{if $usuario}
     <div class="row justify-content-center">
         <div class="col-6">
             <h4>Comentar</h4>
