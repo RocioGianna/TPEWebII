@@ -47,12 +47,12 @@
         <nav>
   <ul class="pagination">
     {if $nro != 1}
-    <li class="page-item">
-      <a class="page-link" href="productos/{$nro - 1}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
+        <li class="page-item">
+            <a class="page-link" href="productos/{$nro - 1}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
     {/if}
     {if $nro > 1}
         {if $nro > 2}
@@ -61,7 +61,7 @@
         <li class="page-item"><a class="page-link" href="productos/{$nro - 1}">{$nro - 1}</a></li>
     {/if}
     <li class="page-item active">
-        <a class="page-link" href="productos/{$nro}">{$nro} <span class="sr-only">(current)</span></a>
+        <a class="page-link" href="productos/{$nro}">página {$nro} <span class="sr-only">(current)</span></a>
     </li>
     {if $nro < $totalpagina}
         <li class="page-item"><a class="page-link" href="productos/{$nro + 1}">{$nro + 1}</a></li>
@@ -70,12 +70,12 @@
         {/if}
     {/if}
     {if $nro != $totalpagina}
-    <li class="page-item">
-      <a class="page-link" href="productos/{$nro + 1}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+        <li class="page-item">
+            <a class="page-link" href="productos/{$nro + 1}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
     {/if}
     
   </ul>
