@@ -99,7 +99,7 @@
             $marcas = $this->modelM->GetMarcas();
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
-            $this->vista->ShowFormEdit($item, $marcas, $marcas, $usuario);
+            $this->vista->ShowFormEdit($item, $marcas, $admin, $usuario);
             /*if(isset($id_item)){
                 $item = $this->model->GetItem($id_item);
                 $marcas = $this->modelM->GetMarcas();

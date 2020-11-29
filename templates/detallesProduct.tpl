@@ -1,6 +1,6 @@
-{if $usuario eq '1' and $admin eq '1'}
+{if $usuario and $admin}
 {include file="adminHeader.tpl"}
-{elseif $usuario eq '1' and $admin eq '0'}
+{else if $usuario}
 {include file="loggedHeader.tpl"}
 {else}
 {include file="userHeader.tpl"}

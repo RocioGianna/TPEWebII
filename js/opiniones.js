@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     </button>
                 <p class="idCom" style="display:none"> ${coment.id_comentario}</p>
                 </li>`;
-                listNotas.innerHTML += `<li style="height:62px" class="list-group-item">${coment.nota}</li>`;
+                listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
             } else {
                 listComents.innerHTML += `<li class="list-group-item">${coment.comentario}
                 <p class="idCom" style="display:none"> ${coment.id_comentario}</p>
                 </li>`;
-                listNotas.innerHTML += `<li style="height:62px" class="list-group-item">${coment.nota}</li>`;
+                listNotas.innerHTML += `<li class="list-group-item">${coment.nota}</li>`;
             }
             let btnDelete = document.getElementsByClassName("btnDelete");
             for(let i = 0; i < btnDelete.length;i++){
