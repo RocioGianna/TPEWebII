@@ -18,12 +18,21 @@
             $this->helper = new Helper();
         }
 
-        function ShowItems(){
-            $items = $this->model->GetItems();
-            $marcas = $this->modelM->GetMarcas();
+        function ShowItems($params = null){
+            if (isset($params[":ID"])) {
+                $numero = $params[":ID"];
+            } else {
+                $numero = 1;
+            }
+            $nroItems = 6;
+            $offset = ($numero-1) * $nroItems;
+            $pagina = $this->model->itemsPagina($offset, $nroItems);
             $usuario = $this->helper->checkLoggedIn();
             $admin = $this->helper->userTipe();
-            $this->vista->ShowProducts($items, $marcas, $admin, $usuario);
+            $productosTotal = $this->model->contadorProductos();
+            $productosEntero = $productosTotal->contador;
+            $totalPaginas = round($productosEntero / $nroItems, 0, PHP_ROUND_HALF_UP);
+            $this->vista->ShowProducts($pagina, $numero, $totalPaginas, $admin, $usuario);
         }
         function Insert(){
             $modelo = $_POST['modelo_input'];
@@ -73,9 +82,14 @@
         }
         function ShowEditForm($params = null){
             $id_item = $params[":ID"];
-            $item = $this->model->GetItem($id_item);
-            $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowFormEdit($item, $marcas);
+            if(isset($id_item)){
+                $item = $this->model->GetItem($id_item);
+                $marcas = $this->modelM->GetMarcas();
+                $this->vista->ShowFormEdit($item, $marcas);
+            }else{
+                $error = "El Id no existe";
+                $this->vista->showError($error);
+            }
         }
         function Edit($params = null){
             $modelo = $_POST["modelo_input"];
@@ -93,7 +107,7 @@
             }
         }
         //Opcional paginacion 
-        function paginacion($params = null){
+        /*function paginacion($params = null){
             if (isset($params[":ID"])) {
                 $numero = $params[":ID"];
             } else {
@@ -102,12 +116,13 @@
             $nroItems = 6;
             $offset = ($numero-1) * $nroItems;
             $pagina = $this->model->itemsPagina($offset, $nroItems);
-           /* var_dump($pagina);
+            $this->vista->ShowProducts($items, $marcas, $admin, $usuario);*/
+            /*var_dump($pagina);
             die;*/
           /*  $productosTotal = $this->model->contadorProductos();
             $productosEntero = (int)$productosTotal->contador;
-            $totalPaginas = $productosEntero / $nroItems;*/
-        }
+            $totalPaginas = $productosEntero / $nroItems;
+        }*/
         //Busqueda avanzada
         function formBusqueda(){
             $usuario = $this->helper->checkLoggedIn();

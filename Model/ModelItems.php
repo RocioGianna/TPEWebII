@@ -59,13 +59,13 @@
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         //Paginacion
-       /* function contadorProductos(){
+        function contadorProductos(){
             $sentencia = $this->db->prepare("SELECT COUNT(*) as contador FROM zapatillas");
             $sentencia->execute();
             return $sentencia->fetch(PDO::FETCH_OBJ);
-        }*/
+        }
         function itemsPagina($offset, $nroItems){
-            $sentencia = $this->db->prepare("SELECT * FROM zapatillas LIMIT $offset, $nroItems");
+            $sentencia = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca LIMIT $offset, $nroItems");
             $sentencia->execute(array($offset, $nroItems));
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
