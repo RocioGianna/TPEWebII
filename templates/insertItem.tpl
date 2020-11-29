@@ -16,10 +16,10 @@
                     <input class="form-control" placeholder="Ingrese stock" id="stock" name="stock_input" >
                 </div> 
                 {if $admin eq 1}
-                <div class="form-group">
-                    <label for="imagen">Insertar imagen</label>
-                    <input type="file" class="form-control-file" id="img" name="img_input">
-                </div> 
+                    <div class="form-group">
+                        <label for="imagen">Insertar imagen</label>
+                        <input type="file" class="form-control-file" id="img" name="img_input">
+                    </div> 
                 {/if}
                 <label>Seleccionar une marca</label>
                 <select class="form-control" name="marca_input">

@@ -15,11 +15,13 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('usuario', $usuario);
             $smarty->display('templates/detallesProduct.tpl'); 
         }
-        function ShowProducts($items, $marcas, $admin, $usuario){
+        function ShowProducts($marcas,$pagina, $numero, $totalPaginas, $admin, $usuario){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
-            $smarty->assign('items', $items);
             $smarty->assign('marcas', $marcas);
+            $smarty->assign('items', $pagina);
+            $smarty->assign('nro', $numero);
+            $smarty->assign('totalpagina', $totalPaginas);
             $smarty->assign('admin', $admin);
             $smarty->assign('usuario', $usuario);
             $smarty->display('templates/productos.tpl'); 
@@ -38,6 +40,13 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('error', $error);
             $smarty->display('templates/error.tpl');
         }
+        //paginacion
+      /*  function showProductos($totalPaginas,$pagina){
+            $smarty = new Smarty;
+            $smarty->assign('pag', $pagina);
+          //  $smarty->assign('paginas', $totalPaginas);
+            $smarty->display('templates/paginacion.tpl');
+        }*/
         //busqueda
         function showFormBusqueda($productos, $totalTalles, $promedio, $min, $medio, $maximo, $admin, $usuario){
             $smarty = new Smarty;
