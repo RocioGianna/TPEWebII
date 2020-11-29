@@ -24,11 +24,13 @@ require_once "./libs/smarty/Smarty.class.php";
             $smarty->assign('usuario', $usuario);
             $smarty->display('templates/productos.tpl'); 
         }
-        function ShowFormEdit($item, $marcas){
+        function ShowFormEdit($item, $marcas, $usuario, $admin){
             $smarty = new Smarty();
             $smarty->assign('titulo', $this->titulo);
             $smarty->assign('item', $item);
             $smarty->assign('marcas', $marcas);
+            $smarty->assign('admin', $admin);
+            $smarty->assign('usuario', $usuario);
             $smarty->display('templates/formEditProduct.tpl'); 
         }
         function showError($error){

@@ -27,6 +27,10 @@
             $sentencia = $this->db->prepare("UPDATE zapatillas SET modelo=?, talles=?, precio =?, stock=?, id_marca=? WHERE id_zapatilla=?");
             $sentencia->execute(array($modelo, $talle, $precio, $stock, $marca, $id_item));
         }
+        function EditItemImg($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item){
+            $sentencia = $this->db->prepare("UPDATE zapatillas SET modelo=?, talles=?, precio =?, stock=?, id_marca=?, imagen=? WHERE id_zapatilla=?");
+            $sentencia->execute(array($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item));
+        }
         function GetItem($id_item){
             $sentencia = $this->db->prepare("SELECT * FROM zapatillas WHERE id_zapatilla=?");
             $sentencia-> execute(array($id_item));

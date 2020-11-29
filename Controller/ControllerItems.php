@@ -75,7 +75,9 @@
             $id_item = $params[":ID"];
             $item = $this->model->GetItem($id_item);
             $marcas = $this->modelM->GetMarcas();
-            $this->vista->ShowFormEdit($item, $marcas);
+            $usuario = $this->helper->checkLoggedIn();
+            $admin = $this->helper->userTipe();
+            $this->vista->ShowFormEdit($item, $marcas, $marcas, $usuario);
         }
         function Edit($params = null){
             $modelo = $_POST["modelo_input"];
@@ -85,13 +87,24 @@
             $marca = $_POST["marca_input"];
             $id_item = $params[":ID"];
             if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
-                $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
-                $this->ShowItems();
+                if(isset($_FILES['img_input']['type'])){
+                    if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
+                        $imgTmp = $_FILES['img_input']['tmp_name'];
+                        $imgSave = 'image/' . $_FILES['img_input']['name'];
+                        move_uploaded_file($imgTmp, $imgSave);
+                        $this->model->EditItemImg($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item);
+                        $this->ShowItems();
+                    }    
+                } else{
+                    $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
+                    $this->ShowItems();
+                }
             }else{
                 $error = "No puede dejar espacios incompletos, vuelva a intentarlo";
                 $this->vista->showError($error);
             }
         }
+
         //Busqueda avanzada
         function formBusqueda(){
             $usuario = $this->helper->checkLoggedIn();

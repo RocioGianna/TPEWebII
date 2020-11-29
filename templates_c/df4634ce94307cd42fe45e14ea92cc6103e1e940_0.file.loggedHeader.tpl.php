@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-17 18:48:30
+/* Smarty version 3.1.34-dev-7, created on 2020-11-27 18:00:21
   from 'C:\xampp\htdocs\web2\flyshoes.com\TPEWebII\templates\loggedHeader.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb40cee77ab82_94760816',
+  'unifunc' => 'content_5fc130a569a9e3_29678881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df4634ce94307cd42fe45e14ea92cc6103e1e940' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\flyshoes.com\\TPEWebII\\templates\\loggedHeader.tpl',
-      1 => 1605635302,
+      1 => 1606249948,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb40cee77ab82_94760816 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc130a569a9e3_29678881 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,10 +62,7 @@ function content_5fb40cee77ab82_94760816 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="newuser" class="nav-link suscribir">Suscribir</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login" class="nav-link">login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="logout" class="nav-link">log out</a>
+                        <a href="logout" class="nav-link">Log out</a>
                     </li>
                 </ul>
                 <div>
