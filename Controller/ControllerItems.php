@@ -102,14 +102,11 @@
             $nroItems = 6;
             $offset = ($numero-1) * $nroItems;
             $pagina = $this->model->itemsPagina($offset, $nroItems);
-            var_dump($pagina);
-            die;
+           /* var_dump($pagina);
+            die;*/
           /*  $productosTotal = $this->model->contadorProductos();
             $productosEntero = (int)$productosTotal->contador;
             $totalPaginas = $productosEntero / $nroItems;*/
-           /* var_dump($pagina);
-            die;*/
-           // $this->vista->showProductos($totalPaginas, $pagina);
         }
         //Busqueda avanzada
         function formBusqueda(){
