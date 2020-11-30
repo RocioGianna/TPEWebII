@@ -105,7 +105,7 @@
                         move_uploaded_file($imgTmp, $imgSave);
                         $this->model->EditItemImg($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item);
                         $this->ShowItems();
-                    }    
+                    }
                 } else{
                     $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
                     $this->ShowItems();

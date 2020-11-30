@@ -27,15 +27,15 @@
                     <input class="form-control"  id="stock" name="stock_input" value={$item->stock} >
                 </div> 
                 {if $admin eq 1}
-                <div class="form-group">
-                    <label for="imagen">Editar imagen</label>
-                    <input type="file" class="form-control-file" id="img" name="img_input">
-                </div> 
+                    <div class="form-group">
+                        <label for="imagen">Editar imagen</label>
+                        <input type="file" class="form-control-file" id="img" name="img_input">
+                    </div> 
                 {/if}
                 <label>Seleccionar une marca</label>
                 <select class="form-control" name="marca_input">
                     {foreach from=$marcas item=i}
-                    <option value={$i->id_marca}> {$i->nombre} </option>
+                        <option value={$i->id_marca}> {$i->nombre} </option>
                     {/foreach}
                 </select>
                 <button type="submit" class="btn btn-primary">Cargar</button>
