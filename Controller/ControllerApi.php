@@ -26,6 +26,7 @@ require_once './Controller/Helper.php';
         }
         function addComent($params = null){
             $id = $params[':ID'];
+            //devuelve el objeto JSON enviado por POST 
             $body = $this->getData();
             $comentario = $body->comentario;
             $nota = $body->nota;

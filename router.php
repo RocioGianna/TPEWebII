@@ -25,7 +25,7 @@
     $r->addRoute("busqueda", "POST", "ControllerItems", "busqueda");
 
     //opcional paginacion
-    $r->addRoute("productos/:ID", "GET", "ControllerItems", "paginacion");
+    $r->addRoute("productos/:ID", "GET", "ControllerItems", "ShowItems");
 
     //ABM Categorias (categoria/marcas)
     $r->addRoute("marcas", "GET", "ControllerMarca", "ShowMarcas");
