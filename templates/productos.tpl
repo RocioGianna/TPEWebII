@@ -7,9 +7,7 @@
 {/if}
 <div class="container">
     <h1 class="justify-content-center">Productos</h1>
-    {if $usuario}
     <a href="./formFiltro/"><button class="btn btn-success" type="submit" >Filtrar</button></a>
-    {/if}
         <table class="table table-dark">
             <thead>
                 <tr>

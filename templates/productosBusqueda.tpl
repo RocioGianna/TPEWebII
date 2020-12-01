@@ -2,7 +2,10 @@
 {include file="adminHeader.tpl"}
 {elseif $usuario and $admin eq '0'}
 {include file="loggedHeader.tpl"}
+{else}
+{include file="userHeader.tpl"}
 {/if}
+
     <div class="container">
         <h1 class="justify-content-center">Productos disponibles</h1>
         <button type="submit" class="btn btn-light"><a href="formFiltro/">Busqueda Avanzada</a></button>
