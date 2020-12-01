@@ -98,19 +98,14 @@
             $stock = $_POST["stock_input"];
             $marca = $_POST["marca_input"];
             $id_item = $params[":ID"];
-            if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input'])){
-                if(isset($_FILES['img_input']['type'])){
-                    if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
-                        $imgTmp = $_FILES['img_input']['tmp_name'];
-                        $imgSave = 'image/' . $_FILES['img_input']['name'];
-                        move_uploaded_file($imgTmp, $imgSave);
-                        $this->model->EditItemImg($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item);
-                        $this->ShowItems();
-                    }
-                } else{
-                    $this->model->EditItem($modelo, $talle, $precio, $stock, $marca, $id_item);
+            if(!empty($_POST['modelo_input']) && !empty($_POST['talle_input']) && !empty($_POST['precio_input']) && !empty($_POST['stock_input']) && !empty($_POST['marca_input']) && !empty($_FILES['img_input']['type'])){
+                if($_FILES['img_input']['type'] == "image/jpg" || $_FILES['img_input']['type'] == "image/jpeg" || $_FILES['img_input']['type'] == "image/png"){
+                    $imgTmp = $_FILES['img_input']['tmp_name'];
+                    $imgSave = 'image/' . $_FILES['img_input']['name'];
+                    move_uploaded_file($imgTmp, $imgSave);
+                    $this->model->EditItemImg($modelo, $talle, $precio, $stock, $marca, $imgSave, $id_item);
                     $this->ShowItems();
-                }else{
+                } else{
                     $error = "El formato de la imagen no corresponde";
                     $this->vista->showError($error);
                 }
