@@ -9,7 +9,6 @@
          private $model;
          private $modelI;
          private $helper;
-         private $user;
 
         function __construct(){
             $this->vista = new VistaMarcas();

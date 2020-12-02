@@ -3,7 +3,6 @@
     require_once './Model/ModelItems.php';
     require_once './Model/ModelMarca.php';
     require_once './Controller/Helper.php';
-    require_once './Controller/ControllerUsers.php';
 
     class ControllerItems{
         private $vista;
