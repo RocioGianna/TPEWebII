@@ -70,7 +70,7 @@
         }
         function itemsPagina($offset, $nroItems){
             $sentencia = $this->db->prepare("SELECT zapatillas.*, marcas.nombre as nombre FROM zapatillas JOIN marcas ON zapatillas.id_marca = marcas.id_marca LIMIT $offset, $nroItems");
-            $sentencia->execute(array($offset, $nroItems));
+            $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         //Busqueda avanzada 
